@@ -22,7 +22,7 @@ if (length(csv_files) == 0) {
 
 #################### nettoyage de la base de donn?es
 install.packages("tidyverse")
-library(tidyverse)
+library(tidyverse) # nous utilisons ce package car cela permet d'avoir une syntaxe cohérente, une facilité d'utilisation et des puissantes capacités de manipulation de données
 summary.data.frame(combined_data)
 unique(combined_data$transparence_eau)
 unique(combined_data$ETIQSTATION)
