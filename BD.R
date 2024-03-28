@@ -79,3 +79,4 @@ write.csv(combined_data, file = chemin_complet, row.names = FALSE)
 # Affichage d'un message indiquant que le fichier a ?t? enregistr? avec succ?s
 cat("Le fichier", nom_fichier, "a ?t? enregistr? sur votre bureau.\n")
 
+#SALUUUUUTTT
