@@ -31,9 +31,37 @@ Causes des données non-retenues:
 -	Etiqstation -> Chaine de caractère; car nous n'avions pas assez de valeur pour en faire quelque chose de pertinent
 - Les autres variables contenaient que des NA donc nous ne les avons pas utilisés
 
+Commentaires Atelier 1
 
+Pour BD
 
+-        Serait-il possible de décrire d’avantage ce que vous faites comme nettoyage dans vos données?
 
+-        Pourquoi juste classer la transparence de l’eau?
+
+-        Ligne 35-36 : Où est cette boucle annoncée dans les commentaires est-elle?
+
+-        Serais-ce possible de poser moins de questions dans les commentaires ou de placer ces questions à un seul endroit?
+
+-        Pourquoi faire un chemin d’enregistrement sur le bureau au lieu de le sauvegarder dans le même fichier?
+
+-        Serait-il possible d’utiliser les fonctions déjà dans R plutôt que d’installer un nouveau package?
+
+-        Serait-il possible de préciser la nécessité du package tidyverse, car celui-ci entre apporte des conflits avec le script et empêche la possibilité d’une utilisation par un autre usager?
+
+Pour table 1,2 et 3 :
+
+-        Serait-il possible de donner un titre plus indicateur sur le type de table que vous faites?
+
+Pour principal :
+
+-        Serait-il possible de donner un titre plus indicateur sur le type de table que vous faites?
+
+-        Préciser que ces tables ont été formées dans les autres scripts?
+
+Général :
+
+-        Pourriez-vous éviter l’utilisation d’accents dans les mots utilisés?
 
 
 --------------------------------------------------------------------------
