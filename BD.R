@@ -59,7 +59,11 @@ combined_data %>%
 #Pour les colonnes 14 ? 30 il y aura aussi une r??valuation plus tard au cours du projet car il y a beaucoup de NA et ces donn?es ne semblent pas ?tre utilisables...
 #La colonne date_obs et date? Quelle est la diff?rence entre la date d'?chantillonnage et la date d'observation?
 
+############### Données retenues
 
+summary.data.frame(data) 
+data <- data[,-(13:30)]
+data <- data[,-(3)]
 
 
 

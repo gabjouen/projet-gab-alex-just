@@ -10,11 +10,26 @@ output: html_document
 
 TEXTE
 
+1.Données
 
+Choix et type des données retenues:
 
+-	Date -> dates et heures (ANNEE-MOIS-JOUR)
+-	Site -> Chaine de caractères 
+-	Heure_obs -> dates et heures (hh : mm : ss)
+-	Fraction -> Nombres réels; cette variable servira seulement au calcul d'abondance 
+-	Nom_sci -> Chaine de caractères 
+-	Abondance -> entiers
+-	Largeur de rivière -> entiers
+-	Profondeur -> Nombres réels
+-	Vitesse_cour -> Nombre réels
+-	Transparence_eau -> Chaine de caractère 
+-	Température_eau -> Nombre réels
 
-
-
+Causes des données non-retenues:
+-	Date_obs -> Dates et heures (ANNEE-MOIS-JOUR); car cette variable est identique à la variable "date"
+-	Etiqstation -> Chaine de caractère; car nous n'avions pas assez de valeur pour en faire quelque chose de pertinent
+- Les autres variables contenaient que des NA donc nous ne les avons pas utilisés
 
 
 
