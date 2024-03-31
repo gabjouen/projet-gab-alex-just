@@ -64,6 +64,24 @@ Général :
 -        Pourriez-vous éviter l’utilisation d’accents dans les mots utilisés?
 
 
+Questions biologiques potentielles :
+
+1. Variation temporelle et spatiale de la composition du benthos :
+
+Comment la composition taxonomique du benthos varie-t-elle au fil du temps, en fonction des dates d'échantillonnage ?
+
+Existe-t-il des différences significatives dans la composition du benthos entre les différents sites d'échantillonnage ?
+
+Y a-t-il des tendances saisonnières dans la densité ou la diversité des espèces de benthos ?
+
+2. Relations entre les conditions environnementales et la structure du benthos :
+
+Comment la composition taxonomique du benthos est-elle influencée par la largeur, la profondeur et la vitesse du courant de la rivière ?
+
+Existe-t-il des relations entre la transparence de l'eau et la densité des organismes benthiques ?
+
+La température de l'eau a-t-elle un impact sur la richesse spécifique ou la biomasse du benthos ?
+
 --------------------------------------------------------------------------
 CODE CHUNK
 
