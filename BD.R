@@ -107,7 +107,7 @@ combined_data <- combined_data[,-(3)]
 
 ###################### ENREGISTRER LA BD COMPLETE EN FORMAT CSV
 
-# Definition du chemin de fichier pour le bureau
+# Definition du chemin de fichier
 chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/projet-gab-alex-just"
 
 # Nom du fichier CSV de sortie
