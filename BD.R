@@ -30,8 +30,7 @@ install.packages("tidyverse")
 library(tidyverse) # nous utilisons ce package car cela permet d'avoir une syntaxe coherente, une facilite d'utilisation et des puissantes capacites de manipulation de donnees
 summary.data.frame(combined_data)
 unique(combined_data$transparence_eau)
-unique(combined_data$ETIQSTATION)
-class(combined_data$ETIQSTATION)
+
 
 
 # Ici je veux que la variable de transparence de l'eau soit pris en compte comme un facteur et non un simple charactere (parce que ici il y a des niveaux!)
@@ -39,6 +38,7 @@ class(combined_data$ETIQSTATION)
 combined_data$transparence_eau<- as.factor(combined_data$transparence_eau)
 class(combined_data$transparence_eau)
 levels(combined_data$transparence_eau)
+
 #Fonction qui place la les valeurs (elever, moyenne et faible) en ordre de niveau
 combined_data$transparence_eau <- factor((combined_data$transparence_eau), levels=c("élevée","moyenne","faible"))
 levels(combined_data$transparence_eau)
@@ -47,7 +47,7 @@ levels(combined_data$transparence_eau)
 #Cette ligne demontre que nous avons aucune duplication dans notre base de donnees!
 combined_data[duplicated(combined_data),]
 
-################Uniformiser le format de la date
+################ Uniformiser le format de la date
 
 # Convertir la colonne "heure_obs" en format hh:mm:ss
 
@@ -71,13 +71,6 @@ combined_data$heure_obs <- sapply(combined_data$heure_obs, convertir_heure)
 head(combined_data)
 
 
-unique(combined_data$heure_obs)
-unique(combined_data$date)
-unique(combined_data$site)
-
-
-
-
 
 ####################Boucles qui seront peut-etre garder ultimement
 
@@ -96,7 +89,6 @@ combined_data %>%
 
 
 
-
 ####################### Donnees retenues
 
 summary.data.frame(combined_data) 
@@ -104,17 +96,11 @@ combined_data <- combined_data[,-(13:30)]
 combined_data <- combined_data[,-(3)]
 
 
-###################### Bon format pour SQL
+###################### Bon format pour SQL (tentative qui n'a pas fonctionner)
 
-class(combined_data$date)
-combined_data$date<- as.Date(combined_data$date)
 
-install.packages("chron")
-library(chron)
-combined_data$heure_obs<- times(combined_data$heure_obs)
-class(combined_data$heure_obs)
-
-class(combined_data$fraction)
+combined_data$date <- format(as.Date(combined_data$date, "%Y-%m-%d"))
+combined_data$heure_obs<- as.character(combined_data$heure_obs)
 
 ###################### ENREGISTRER LA BD COMPLETE EN FORMAT CSV
 
