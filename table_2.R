@@ -1,5 +1,5 @@
 # Definition de la fonction pour creer le dataframe
 table2 <- function(tab2){
-  data2 = data.frame(combined_data$nom_sci,combined_data$abondance,combined_data$fraction)
+  data2 = data.frame(combined_data$date,combined_data$heure_obs)
   return(data2)
 }

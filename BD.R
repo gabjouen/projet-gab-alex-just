@@ -104,6 +104,17 @@ combined_data <- combined_data[,-(13:30)]
 combined_data <- combined_data[,-(3)]
 
 
+###################### Bon format pour SQL
+
+class(combined_data$date)
+combined_data$date<- as.Date(combined_data$date)
+
+install.packages("chron")
+library(chron)
+combined_data$heure_obs<- times(combined_data$heure_obs)
+class(combined_data$heure_obs)
+
+class(combined_data$fraction)
 
 ###################### ENREGISTRER LA BD COMPLETE EN FORMAT CSV
 

@@ -7,17 +7,17 @@
 # 1. chemin vers les donn?es
 Chem <- "combined_data.csv"
 
-# Lecture de la table 1 - Observation terrain
+# Lecture de la table 1 - Observations de l'échantillon
 source ("table_1.R")
 table <- table1(data1)
 table
 
-# Lecture de la table 2 - Observation labo
+# Lecture de la table 2 - Date et heure de l'échantillonnage
 source ("table_2.R")
 tabl <- table2(data2)
 tabl
 
-# Lecture de la table 3 - Caracteristiques physiques des stations d' 
+# Lecture de la table 3 - Caracteristiques physiques des stations d'echantillonnage 
 source ("table_3.R")
 tab <- table3(data3)
 tab
