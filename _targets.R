@@ -5,39 +5,75 @@ library(targets)
 # ===========================================
 # Dépendances
 tar_option_set(packages = c("RSQLite", "DBI","dplyr","tidyverse"))
+library(targets)
 
 # Scripts R
-source("BD.R")
-source("fonction_combiner.R")
-source("fonction_heure.R")
-source("fonction_nettoyage.R")
-source("script principal.R")
-source("table_1.R")
-source("table_2.R")
-source("table_3.R")
+source("R/commandes_SQL.R")
+source("R/fonction_combiner.R")
+source("R/fonction_heure.R")
+source("R/fonction_nettoyage.R")
+source("R/script_principal.R")
+source("R/table_1.R")
+source("R/table_2.R")
+source("R/table_3.R")
+source("R/table_4.R")
 
 # Pipeline
 list(
-  # Une target pour le chemin du fichier de donnée permet de suivre les 
-  # changements dans le fichier
+  # Target pour le chemin du fichier de données
   tar_target(
-    name = path, # Cible
-    command = "data/data.txt", # Emplacement du fichier
+    name = chemin,
+    command = "C:\Users\gabin\OneDrive\Documents\School\session hiver 2024\Ecologie computionelle\projet\projet-gab-alex-just", # Remplacez par le chemin réel de votre fichier de données
     format = "file"
-  ), 
-  # La target suivante a "path" pour dépendance et importe les données. Sans
-  # la séparation de ces deux étapes, la dépendance serait brisée et une
-  # modification des données n'entrainerait pas l'exécution du pipeline
-  tar_target(
-    name = data, # Cible pour l'objet de données
-    command = read.table(path) # Lecture des données
-  ),   
-  tar_target(
-    resultat_modele, # Cible pour le modèle 
-    mon_modele(data) # Exécution de l'analyse
   ),
+  # Target pour les commandes SQL
   tar_target(
-    figure, # Cible pour l'exécution de la figure
-    ma_figure(data, resultat_modele) # Réalisation de la figure
+    name = commandes_sql,
+    command = script_commandes_sql() # Fonction à définir dans commandes_SQL.R
+  ),
+  
+  # Target pour la combinaison des données
+  tar_target(
+    name = donnees_combinees,
+    command = combiner_donnees(commandes_sql) # Fonction à définir dans fonction_combiner.R
+  ),
+  
+  # Target pour le traitement des heures
+  tar_target(
+    name = donnees_heure,
+    command = traiter_heure(donnees_combinees) # Fonction à définir dans fonction_heure.R
+  ),
+  
+  # Target pour le nettoyage des données
+  tar_target(
+    name = donnees_nettoyees,
+    command = nettoyer_donnees(donnees_heure) # Fonction à définir dans fonction_nettoyage.R
+  ),
+  
+  # Target pour l'exécution du script principal
+  tar_target(
+    name = resultat_final,
+    command = script_principal(donnees_nettoyees) # Fonction à définir dans script principal.R
+  ),
+  
+  # Targets pour les différentes tables
+  tar_target(
+    name = table1,
+    command = generer_table_1(donnees_nettoyees) # Fonction à définir dans table_1.R
+  ),
+  
+  tar_target(
+    name = table2,
+    command = generer_table_2(donnees_nettoyees) # Fonction à définir dans table_2.R
+  ),
+  
+  tar_target(
+    name = table3,
+    command = generer_table_3(donnees_nettoyees) # Fonction à définir dans table_3.R
+  ),
+  
+  tar_target(
+    name = table4,
+    command = generer_table_4(donnees_nettoyees) # Fonction à définir dans table_4.R
   )
 )
