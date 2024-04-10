@@ -11,7 +11,7 @@ con <- dbConnect(RSQLite::SQLite(), dbname="reseau_data")
 date <- "
 CREATE TABLE date (
   date       DATE,
-  heure_obs  TIME,
+  heure_obs  CHAR,
   PRIMARY KEY (date)
 );"
 
@@ -20,7 +20,7 @@ CREATE TABLE site (
   site               VARCHAR(40),
   largeur_riviere    REAL,
   profondeur_riviere REAL,
-  vitesse_courant    INTEGER,
+  vitesse_courant    REAL,
   transparence_eau   VARCHAR(40),
   temperature_eau_c  REAL,
   PRIMARY KEY (site)
@@ -30,7 +30,7 @@ observation <- "
 CREATE TABLE observation (
   date      DATE,
   site      VARCHAR(40),
-  fraction  INTEGER,
+  fraction  REAL
   nom_sci   VARCHAR(50),
   abondance REAL,
   PRIMARY KEY (abondance, fraction),
