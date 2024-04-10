@@ -47,29 +47,6 @@ levels(combined_data$transparence_eau)
 #Cette ligne demontre que nous avons aucune duplication dans notre base de donnees!
 combined_data[duplicated(combined_data),]
 
-################ Uniformiser le format de la date
-
-# Convertir la colonne "heure_obs" en format hh:mm:ss
-
-
-# Fonction pour convertir le format xxhmm.ss en hh:mm:ss
-convertir_heure <- function(heure) {
-  # Extraire les heures, les minutes et les secondes
-  heures <- substr(heure, 1, 2)
-  minutes <- substr(heure, 4, 5)
-  secondes <- sprintf("%.0f", as.numeric(substr(heure, 7, 9)) * 60)
-  
-  # Assembler les composantes en format hh:mm:ss
-  heure_convertie <- paste(heures, minutes, secondes, sep = ":")
-  return(heure_convertie)
-}
-
-# Appliquer la fonction de conversion à la colonne "heure_obs"
-combined_data$heure_obs <- sapply(combined_data$heure_obs, convertir_heure)
-
-# Afficher les premières lignes du tableau pour vérifier
-head(combined_data)
-
 
 
 ####################Boucles qui seront peut-etre garder ultimement
@@ -94,13 +71,7 @@ combined_data %>%
 summary.data.frame(combined_data) 
 combined_data <- combined_data[,-(13:30)]
 combined_data <- combined_data[,-(3)]
-
-
-###################### Bon format pour SQL (tentative qui n'a pas fonctionner)
-
-
-combined_data$date <- format(as.Date(combined_data$date, "%Y-%m-%d"))
-combined_data$heure_obs<- as.character(combined_data$heure_obs)
+combined_data$ID_observation<- c(1:2006) #ajout d'une colonne pour avoir une valeur unique pour chaque observation
 
 ###################### ENREGISTRER LA BD COMPLETE EN FORMAT CSV
 
