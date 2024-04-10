@@ -45,7 +45,7 @@ levels(combined_data$transparence_eau)
 
 
 #Cette ligne demontre que nous avons aucune duplication dans notre base de donnees!
-combined_data[duplicated(combined_data),]
+combined_data <-combined_data[!duplicated(combined_data),]
 
 
 

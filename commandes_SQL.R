@@ -30,9 +30,10 @@ observation <- "
 CREATE TABLE observation (
   date      DATE,
   site      VARCHAR(40),
-  fraction  REAL
+  fraction  REAL,
   nom_sci   VARCHAR(50),
   abondance REAL,
+  ID_observation REAL, 
   PRIMARY KEY (abondance, fraction),
   FOREIGN KEY (date) REFERENCES date(date),
   FOREIGN KEY (site) REFERENCES site(site)
