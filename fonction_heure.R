@@ -1,11 +1,3 @@
-#################### nettoyage de la base de donnees
-
-install.packages("tidyverse")
-library(tidyverse) # nous utilisons ce package car cela permet d'avoir une syntaxe coherente, une facilite d'utilisation et des puissantes capacites de manipulation de donnees
-summary.data.frame(combined_data)
-unique(combined_data$transparence_eau)
-
-
 ################ Uniformiser le format de la date
 
 # Convertir la colonne "heure_obs" en format hh:mm:ss
@@ -48,11 +40,7 @@ combined_data %>%
 
 
 
-####################### Donnees retenues
 
-summary.data.frame(combined_data) 
-combined_data <- combined_data[,-(13:30)]
-combined_data <- combined_data[,-(3)]
 
 
 ###################### Bon format pour SQL (tentative qui n'a pas fonctionner)

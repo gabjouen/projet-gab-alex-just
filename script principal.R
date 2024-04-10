@@ -24,7 +24,10 @@ tab
 
 #On ne retrouve pas l'ensemble des variables de notre base de donnees car nous estimons qu'elles ne seront pas utilisables dans le futur (trop de NA's)
 
-
+#classer les variables transparance en ordre 
 source("fonction_nettoyage.R")
 trans_data<-convert_transparence_eau(data_transpa)
 trans_data
+
+#suppression des colonnes ayant des valeurs NULL
+source("") 
