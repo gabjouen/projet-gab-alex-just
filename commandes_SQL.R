@@ -8,14 +8,16 @@ con <- dbConnect(RSQLite::SQLite(), dbname="reseau_data")
 
 ################# CREER LES TABLES
 
-date <- "
+tbl_date <- "
 CREATE TABLE date (
-  date       DATE,
+  date       CHAR,
   heure_obs  CHAR,
-  PRIMARY KEY (date)
+  id_date    REAL,
+  PRIMARY KEY (id_date),
+  FOREIGN KEY (date) REFERENCES identification(date)
 );"
 
-phys_stations <- "
+tbl_site <- "
 CREATE TABLE site (
   site               VARCHAR(40),
   largeur_riviere    REAL,
@@ -23,77 +25,81 @@ CREATE TABLE site (
   vitesse_courant    REAL,
   transparence_eau   VARCHAR(40),
   temperature_eau_c  REAL,
-  PRIMARY KEY (site)
+  id_date            REAL,
+  PRIMARY KEY (id_date),
+  FOREIGN KEY (site) REFERENCES identification(site),
+  FOREIGN KEY (id_date) REFERENCES date(id_date)
 );"
 
-observation <- "
-CREATE TABLE observation (
-  date      DATE,
-  site      VARCHAR(40),
+tbl_espece <- "
+CREATE TABLE espece (
   fraction  REAL,
   nom_sci   VARCHAR(50),
   abondance REAL,
-  ID_observation REAL, 
-  PRIMARY KEY (abondance, fraction),
-  FOREIGN KEY (date) REFERENCES date(date),
-  FOREIGN KEY (site) REFERENCES site(site)
+  ID_observation REAL,
+  PRIMARY KEY (ID_observation),
+  FOREIGN KEY (ID_observation) REFERENCES identification(ID_observation)
 );"
 
-dbSendQuery(con, observation)
-dbSendQuery(con, date)
-dbSendQuery(con, phys_stations)
+tbl_identification <- "
+CREATE TABLE identification (
+  date           CHAR,
+  site           VARCHAR(40),
+  ID_observation REAL, 
+  PRIMARY KEY (ID_observation)
+);"
 
+dbSendQuery(con, tbl_site)
+dbSendQuery(con, tbl_date)
+dbSendQuery(con, tbl_identification)
+dbSendQuery(con, tbl_espece)
 
 
 ############# LECTURE DES FICHIERS CSV
 
-bd_obs<- combined_data[, c('date', 'site','fraction','nom_sci','abondance')]
-bd_sites<- combined_data[, c('site','largeur_riviere','profondeur_riviere','vitesse_courant','transparence_eau','temperature_eau_c')]
-bd_dates<- combined_data[, c('date', 'heure_obs')]
-
-bd_dates<- as.data.frame(bd_dates)
-bd_obs<- as.data.frame(bd_obs)
-bd_sites<- as.data.frame(bd_sites)
+bd_ident<- combined_data[, c('date','site','ID_observation')]
+bd_esp<- combined_data[, c('fraction','nom_sci','abondance','ID_observation')]
+bd_sites<- combined_data[, c('site','largeur_riviere','profondeur_riviere','vitesse_courant','transparence_eau','temperature_eau_c','id_date')]
+bd_dates<- combined_data[, c('date', 'heure_obs','id_date')]
 
 
-################## Supprimer la contrainte UNIQUE 
+############### Seulement pour voir quelles variables sont des clés primaires ou secondaires
 
-# Remarque : Cette opération nécessite de recréer la table sans la contrainte UNIQUE (message d'erreur qui nous sortait)
-dbExecute(con, "CREATE TABLE temp_table AS SELECT * FROM date;")
-dbExecute(con, "DROP TABLE date;")
-dbExecute(con, "ALTER TABLE temp_table RENAME TO date;")
-
-dbExecute(con, "CREATE TABLE temp_table AS SELECT * FROM site;")
-dbExecute(con, "DROP TABLE site;")
-dbExecute(con, "ALTER TABLE temp_table RENAME TO site;")
-
-dbExecute(con, "CREATE TABLE temp_table AS SELECT * FROM observation;")
-dbExecute(con, "DROP TABLE observation;")
-dbExecute(con, "ALTER TABLE temp_table RENAME TO observation;")
+bd_sites <-bd_sites[!duplicated(bd_sites),]
+bd_dates <-bd_dates[!duplicated(bd_dates),]
 
 
 ############ INJECTION DES DONNÉES
 
-dbWriteTable(con, append = TRUE, name = "observation", value = bd_obs, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "espece", value = bd_esp, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "date", value = bd_dates, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "site", value = bd_sites, row.names = FALSE)
-
+dbWriteTable(con, append = TRUE, name = "identification", value = bd_ident, row.names = FALSE)
 dbListTables(con)
+
 
 ########## Requetes
 
-res <- dbGetQuery(con, 'SELECT * FROM site LIMIT 10')
-res
-res1 <- dbGetQuery(con, 'SELECT * FROM date LIMIT 10')
-res1
-res2 <- dbGetQuery(con, 'SELECT * FROM observation LIMIT 10')
-res2
-ress <- dbRemoveTable(con, "date")
-ress
-res3 <- dbGetQuery(con, 'SELECT * FROM observation INNER JOIN site ON observation.site = site.site LIMIT 10')
-res3
+req1 <- dbGetQuery(con, 'SELECT * FROM site LIMIT 10')
+req1
+req2 <- dbGetQuery(con, 'SELECT * FROM date LIMIT 10')
+req2
+req3 <- dbGetQuery(con, 'SELECT * FROM espece LIMIT 10')
+req3
+req4 <- dbGetQuery(con, 'SELECT * FROM identification LIMIT 10')
+req4
 
-####### formats SQL
+dbRemoveTable(con, "date")
+dbRemoveTable(con, "site")
+dbRemoveTable(con, "identification")
+dbRemoveTable(con, "espece")
+
+req6 <- dbGetQuery(con, 'SELECT * FROM observation INNER JOIN site ON observation.site = site.site LIMIT 10')
+req6
+
+
+################# formats SQL
+
 # Nous avons essayer de changer les formats des variables heure_obs 
 # et date dans nos tables SQL mais nous avons pas réussi c'est pourquoi nous changer les formats après en rajoutant une étape supplémentaire
 # UNE ERREUR QUI SERA A REPARER PLUS TARD!

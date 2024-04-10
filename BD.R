@@ -32,12 +32,12 @@ summary.data.frame(combined_data)
 unique(combined_data$transparence_eau)
 
 
-
 # Ici je veux que la variable de transparence de l'eau soit pris en compte comme un facteur et non un simple charactere (parce que ici il y a des niveaux!)
 # On voulait classr la varibale transparence de l'eau puisque il s'agit d'une variable categorique et nous voulions que R comprenne la différence entre elever, moyen et faible 
 combined_data$transparence_eau<- as.factor(combined_data$transparence_eau)
 class(combined_data$transparence_eau)
 levels(combined_data$transparence_eau)
+
 
 #Fonction qui place la les valeurs (elever, moyenne et faible) en ordre de niveau
 combined_data$transparence_eau <- factor((combined_data$transparence_eau), levels=c("élevée","moyenne","faible"))
@@ -50,6 +50,7 @@ combined_data <-combined_data[!duplicated(combined_data),]
 
 
 ####################Boucles qui seront peut-etre garder ultimement
+
 
 #exemple de fonction qui remplacerais les NA retrouver par un autre terme pour ne pas perdre de la donnee
 combined_data %>% 
@@ -73,10 +74,41 @@ combined_data <- combined_data[,-(13:30)]
 combined_data <- combined_data[,-(3)]
 combined_data$ID_observation<- c(1:2006) #ajout d'une colonne pour avoir une valeur unique pour chaque observation
 
+combined_data<- combined_data %>%
+  mutate(id_date=cumsum(date != lag(date, default = first(date)))) #ajout colonne id_date pour chaque dates differentes
+  
+
+
+################ Uniformiser le format de la date
+
+# Convertir la colonne "heure_obs" en format hh:mm:ss
+# Fonction pour convertir le format xxhmm.ss en hh:mm:ss
+
+convertir_heure <- function(heure) {
+  # Extraire les heures, les minutes et les secondes
+  
+  heures <- substr(heure, 1, 2)
+  minutes <- substr(heure, 4, 5)
+  secondes <- sprintf("%.0f", as.numeric(substr(heure, 7, 9)) * 60)
+  
+  # Assembler les composantes en format hh:mm:ss
+  heure_convertie <- paste(heures, minutes, secondes, sep = ":")
+  
+  return(heure_convertie)
+  
+}
+
+
+# Appliquer la fonction de conversion à la colonne "heure_obs"
+combined_data$heure_obs <- sapply(combined_data$heure_obs, convertir_heure)
+# Afficher les premières lignes du tableau pour vérifier
+head(combined_data)
+
+
 ###################### ENREGISTRER LA BD COMPLETE EN FORMAT CSV
 
 # Definition du chemin de fichier
-chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/projet-gab-alex-just"
+chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just"
 
 # Nom du fichier CSV de sortie
 nom_fichier <- "combined_data.csv"
