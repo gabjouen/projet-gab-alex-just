@@ -31,37 +31,6 @@ Causes des données non-retenues:
 -	Etiqstation -> Chaine de caractère; car nous n'avions pas assez de valeur pour en faire quelque chose de pertinent
 - Les autres variables contenaient que des NA donc nous ne les avons pas utilisés
 
-Commentaires Atelier 1
-
-Pour BD
-
--        Serait-il possible de décrire d’avantage ce que vous faites comme nettoyage dans vos données?
-
--        Pourquoi juste classer la transparence de l’eau?
-
--        Ligne 35-36 : Où est cette boucle annoncée dans les commentaires est-elle?
-
--        Serais-ce possible de poser moins de questions dans les commentaires ou de placer ces questions à un seul endroit?
-
--        Pourquoi faire un chemin d’enregistrement sur le bureau au lieu de le sauvegarder dans le même fichier?
-
--        Serait-il possible d’utiliser les fonctions déjà dans R plutôt que d’installer un nouveau package?
-
--        Serait-il possible de préciser la nécessité du package tidyverse, car celui-ci entre apporte des conflits avec le script et empêche la possibilité d’une utilisation par un autre usager?
-
-Pour table 1,2 et 3 :
-
--        Serait-il possible de donner un titre plus indicateur sur le type de table que vous faites?
-
-Pour principal :
-
--        Serait-il possible de donner un titre plus indicateur sur le type de table que vous faites?
-
--        Préciser que ces tables ont été formées dans les autres scripts?
-
-Général :
-
--        Pourriez-vous éviter l’utilisation d’accents dans les mots utilisés?
 
 
 Questions biologiques potentielles :
@@ -81,6 +50,24 @@ Comment la composition taxonomique du benthos est-elle influencée par la largeu
 Existe-t-il des relations entre la transparence de l'eau et la densité des organismes benthiques ?
 
 La température de l'eau a-t-elle un impact sur la richesse spécifique ou la biomasse du benthos ?
+
+
+
+Explication dépendance de nos tar_target :
+
+
+- chemin_donnees : Cette target ne dépend d'aucune autre target. Elle sert à suivre le chemin du fichier de données.
+
+- commandes_sql : Cette target dépend de chemin_donnees. Elle utilise le chemin du fichier de données pour exécuter les commandes SQL.
+
+- donnees_combinees : Cette target dépend de commandes_sql. Elle utilise les résultats des commandes SQL pour combiner les données.
+
+- donnees_heure : Cette target dépend de donnees_combinees. Elle utilise les données combinées pour traiter les informations relatives aux heures.
+
+- donnees_nettoyees : Cette target dépend de donnees_heure. Elle utilise les données avec les heures traitées pour effectuer un nettoyage supplémentaire.
+
+- resultat_final : Cette target dépend de donnees_nettoyees. Elle utilise les données nettoyées pour exécuter le script principal et produire le résultat final.
+- table1, table2, table3, table4 : Ces targets dépendent également de donnees_nettoyees. Elles utilisent les données nettoyées pour générer les différentes tables
 
 --------------------------------------------------------------------------
 CODE CHUNK
