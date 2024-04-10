@@ -80,22 +80,25 @@ dbListTables(con)
 
 ########## Requetes
 
-req1 <- dbGetQuery(con, 'SELECT * FROM site LIMIT 10')
+req1 <- dbGetQuery(con, 'SELECT * FROM site')
 req1
-req2 <- dbGetQuery(con, 'SELECT * FROM date LIMIT 10')
+req2 <- dbGetQuery(con, 'SELECT * FROM date')
 req2
-req3 <- dbGetQuery(con, 'SELECT * FROM espece LIMIT 10')
+req3 <- dbGetQuery(con, 'SELECT * FROM espece')
 req3
-req4 <- dbGetQuery(con, 'SELECT * FROM identification LIMIT 10')
+req4 <- dbGetQuery(con, 'SELECT * FROM identification')
 req4
+
+
+dbDisconnect(con)
+
+
 
 dbRemoveTable(con, "date")
 dbRemoveTable(con, "site")
 dbRemoveTable(con, "identification")
 dbRemoveTable(con, "espece")
 
-req6 <- dbGetQuery(con, 'SELECT * FROM observation INNER JOIN site ON observation.site = site.site LIMIT 10')
-req6
 
 
 ################# formats SQL
@@ -114,4 +117,3 @@ donnee1$date <- format(as.Date(donnee1$date), "%Y-%m-%d")
 print(donnee1)
 
 
-dbDisconnect(con)

@@ -1,9 +1,11 @@
-#package nécessaire pour la fonction
+  #package nécessaire pour la fonction
 install.packages("dplyr")
 library(dplyr)
 
 # fonction permettant de compiler les données et de sortir une database combinée 
 combine_csv_files <- function(folder_path) {
+  # Repertoire contenant les fichiers CSV
+  folder_path <- "C:/Users/ALEXIS/OneDrive/Bureau/Éco computationnelle/Atelier 1/benthos/benthos"
   
   # Obtentir la liste des fichiers CSV dans le repertoire
   csv_files <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
@@ -21,7 +23,3 @@ combine_csv_files <- function(folder_path) {
   }
 }
 
-# Utilisation de la fonction
-folder_path <- "C:/Users/gabin/OneDrive/Documents/School/session hiver 2024/Ecologie computionelle/projet/projet-gab-alex-just"
-combined_data <- combine_csv_files(folder_path)
-print(combined_data)

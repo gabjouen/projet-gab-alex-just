@@ -8,22 +8,22 @@ tar_option_set(packages = c("RSQLite", "DBI","dplyr","tidyverse"))
 library(targets)
 
 # Scripts R
-source("R/commandes_SQL.R")
-source("R/fonction_combiner.R")
-source("R/fonction_heure.R")
-source("R/fonction_nettoyage.R")
-source("R/script_principal.R")
-source("R/table_1.R")
-source("R/table_2.R")
-source("R/table_3.R")
-source("R/table_4.R")
+source("commandes_SQL.R")
+source("fonction_combiner.R")
+source("fonction_heure.R")
+source("fonction_nettoyage.R")
+source("script_principal.R")
+source("table_1.R")
+source("table_2.R")
+source("table_3.R")
+source("table_4.R")
 
 # Pipeline
 list(
   # Target pour le chemin du fichier de données
   tar_target(
     name = chemin,
-    command = "C:\Users\gabin\OneDrive\Documents\School\session hiver 2024\Ecologie computionelle\projet\projet-gab-alex-just", # Remplacez par le chemin réel de votre fichier de données
+    command = "C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just", # Remplacez par le chemin réel de votre fichier de données
     format = "file"
   ),
   # Target pour les commandes SQL
