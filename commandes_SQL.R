@@ -8,13 +8,21 @@ con <- dbConnect(RSQLite::SQLite(), dbname="reseau_data")
 
 ################# CREER LES TABLES
 
+tbl_identification <- "
+CREATE TABLE identification (
+  id_date           REAL,
+  site              VARCHAR(40),
+  ID_observation    REAL, 
+  PRIMARY KEY (ID_observation),
+  PRIMARY KEY (id_date)
+);"
+
 tbl_date <- "
 CREATE TABLE date (
-  date       CHAR,
+  date       DATE,
   heure_obs  CHAR,
   id_date    REAL,
-  PRIMARY KEY (id_date),
-  FOREIGN KEY (date) REFERENCES identification(date)
+  FOREIGN KEY (id_date) REFERENCES identification(id_date)
 );"
 
 tbl_site <- "
@@ -26,9 +34,7 @@ CREATE TABLE site (
   transparence_eau   VARCHAR(40),
   temperature_eau_c  REAL,
   id_date            REAL,
-  PRIMARY KEY (id_date),
-  FOREIGN KEY (site) REFERENCES identification(site),
-  FOREIGN KEY (id_date) REFERENCES date(id_date)
+  FOREIGN KEY (id_date) REFERENCES identification(id_date)
 );"
 
 tbl_espece <- "
@@ -37,17 +43,9 @@ CREATE TABLE espece (
   nom_sci   VARCHAR(50),
   abondance REAL,
   ID_observation REAL,
-  PRIMARY KEY (ID_observation),
   FOREIGN KEY (ID_observation) REFERENCES identification(ID_observation)
 );"
 
-tbl_identification <- "
-CREATE TABLE identification (
-  date           CHAR,
-  site           VARCHAR(40),
-  ID_observation REAL, 
-  PRIMARY KEY (ID_observation)
-);"
 
 dbSendQuery(con, tbl_site)
 dbSendQuery(con, tbl_date)
