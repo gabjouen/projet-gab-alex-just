@@ -1,9 +1,8 @@
-################ Uniformiser le format de la date
+################ Uniformiser le format de heure_obs
 
 # Convertir la colonne "heure_obs" en format hh:mm:ss
-
-
 # Fonction pour convertir le format xxhmm.ss en hh:mm:ss
+
 convertir_heure <- function(heure) {
   # Extraire les heures, les minutes et les secondes
   heures <- substr(heure, 1, 2)
@@ -18,8 +17,7 @@ convertir_heure <- function(heure) {
 # Appliquer la fonction de conversion à la colonne "heure_obs"
 combined_data$heure_obs <- sapply(combined_data$heure_obs, convertir_heure)
 
-# Afficher les premières lignes du tableau pour vérifier
-head(combined_data)
+
 
 
 
@@ -43,27 +41,5 @@ combined_data %>%
 
 
 
-###################### Bon format pour SQL (tentative qui n'a pas fonctionner)
-
-
-combined_data$date <- format(as.Date(combined_data$date, "%Y-%m-%d"))
-combined_data$heure_obs<- as.character(combined_data$heure_obs)
-
-###################### ENREGISTRER LA BD COMPLETE EN FORMAT CSV
-
-# Definition du chemin de fichier
-chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/projet-gab-alex-just"
-
-# Nom du fichier CSV de sortie
-nom_fichier <- "combined_data.csv"
-
-# Chemin complet du fichier de sortie
-chemin_complet <- file.path(chemin_telechargement, nom_fichier)
-
-# Sauvegarde du tableau en tant que fichier CSV
-write.csv(combined_data, file = chemin_complet, row.names = FALSE)
-
-# Affichage d'un message indiquant que le fichier a pu etre enregistrer avec succes
-cat("Le fichier", nom_fichier, "a pu etre enregistrer sur votre projet.\n")
 
 
