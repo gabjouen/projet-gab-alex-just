@@ -105,11 +105,20 @@ donnees7$largeur_riviere <- as.numeric(donnees7$largeur_riviere)
 donnees7$profondeur_riviere <- as.numeric(donnees7$profondeur_riviere)
 donnees7$vitesse_courant <- as.numeric(donnees7$vitesse_courant)
 donnees7$temperature_eau_c <- as.numeric(donnees7$temperature_eau_c)
+donnees7$abondance_totale <- as.numeric(donnees7$abondance_totale)
 
 # Créer la matrice de corrélation avec GGally
+
+# Définir la fonction personnalisée pour ggpairs
+custom_fn <- function(data, mapping, ...){
+  ggplot(data = data, mapping = mapping) +
+    geom_point(color = "blue", size = 1, ...) +
+    geom_smooth(method = "lm", color = "red", ...)
+}
+
+# Créer la matrice de corrélation avec GGally, incluant des points et des lignes de tendance
 ggpairs(donnees7, 
         upper = list(continuous = wrap("cor", size = 4)),
-        lower = list(continuous = wrap("points", size = 1, alpha = 0.3)),
-        diag = list(continuous = wrap("densityDiag"))
+        lower = list(continuous = custom_fn),
+        diag = list(continuous = wrap("densityDiag", size = 0.5))
 )
-

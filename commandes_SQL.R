@@ -154,9 +154,10 @@ donnees6 <- dbGetQuery(con, requete6)
 
 
 requete7 <- "
-SELECT s.largeur_riviere, s.profondeur_riviere, s.vitesse_courant, s.temperature_eau_c
+SELECT s.largeur_riviere, s.profondeur_riviere, s.vitesse_courant, s.temperature_eau_c, e.abondance_totale
 FROM site s
 JOIN identification i ON s.id_date = i.id_date
+JOIN espece e ON i.ID_observation = e.ID_observation
 "
 
 # Récupérer les données
