@@ -8,7 +8,7 @@ library(tidyverse) # nous utilisons ce package car cela permet d'avoir une synta
 # On voulait classr la varibale transparence de l'eau puisque il s'agit d'une variable categorique et nous voulions que R comprenne la différence entre elever, moyen et faible 
 unique(combined_data$transparence_eau)
 combined_data$transparence_eau<- as.factor(combined_data$transparence_eau)
-class(combined_data$transparence_eau)
+class(combined_data$transparence_eau) #pour vérifier si la transparence est bien de type facteur 
 levels(combined_data$transparence_eau)
 
 
@@ -245,7 +245,7 @@ combined_data <-combined_data[!duplicated(combined_data),]
 telechargement <- function(combined_data){
   
   # Definition du chemin de fichier
-  chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just"
+  chemin_telechargement <- "C:/Users/gabin/OneDrive/Documents/School/session hiver 2024/Ecologie computionelle/projet/projet-gab-alex-just"
 
   # Nom du fichier CSV de sortie
   nom_fichier <- "combined_data.csv"
