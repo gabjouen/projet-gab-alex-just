@@ -87,6 +87,14 @@ req4 <- dbGetQuery(con, 'SELECT * FROM identification LIMIT 10')
 req4
 
 
+#Juste pour faire les changement dans les tables
+dbRemoveTable(con, "date")
+dbRemoveTable(con, "site")
+dbRemoveTable(con, "identification")
+dbRemoveTable(con, "espece")
+
+##########
+
 # extraction des donnees necessaires pour nos 3 figures
 requete1 <- "
 SELECT espece.nom_sci, espece.abondance, site.largeur_riviere, site.profondeur_riviere, site.vitesse_courant
@@ -96,6 +104,7 @@ JOIN site ON identification.id_date = site.id_date
 "
 donnees1 <- dbGetQuery(con, requete1)
 
+############
 
 requete2 <- "
 SELECT SUM(espece.abondance) AS abondance_totale, site.largeur_riviere
@@ -106,6 +115,7 @@ GROUP BY site.largeur_riviere
 "
 donnees2 <- dbGetQuery(con, requete2)
 
+##########
 
 requete3 <- "
 SELECT SUM(espece.abondance_totale) AS abondance_totale, site.profondeur_riviere
@@ -116,6 +126,7 @@ GROUP BY site.profondeur_riviere
 "
 donnees3 <- dbGetQuery(con, requete3)
 
+############
 
 requete4 <- "
 SELECT SUM(espece.abondance_totale) AS abondance_totale, site.vitesse_courant
@@ -126,12 +137,13 @@ GROUP BY site.vitesse_courant
 "
 donnees4 <- dbGetQuery(con, requete4)
 
+###########
 
 requete5 <- "
-SELECT
-    e.abondance_totale,
-    s.profondeur_riviere,
-    s.transparence_eau
+SELECT 
+    e.famille,
+    s.temperature_eau_c,
+    e.abondance_totale
 FROM
     espece e
 JOIN
@@ -139,9 +151,9 @@ JOIN
 JOIN
     site s ON i.id_date = s.id_date
 "
-# Récupérer les données dans un dataframe R
 donnees5 <- dbGetQuery(con, requete5)
 
+###########
 
 requete6 <- "
 SELECT SUM(espece.abondance_totale) AS abondance_totale, site.temperature_eau_c
@@ -152,6 +164,7 @@ GROUP BY site.temperature_eau_c
 "
 donnees6 <- dbGetQuery(con, requete6)
 
+############
 
 requete7 <- "
 SELECT s.largeur_riviere, s.profondeur_riviere, s.vitesse_courant, s.temperature_eau_c, e.abondance_totale
@@ -163,13 +176,25 @@ JOIN espece e ON i.ID_observation = e.ID_observation
 # Récupérer les données
 donnees7 <- dbGetQuery(con, requete7)
 
+############
+
+requete8 <- "
+SELECT 
+    e.famille,
+    s.vitesse_courant,
+    s.temperature_eau_c
+FROM 
+    espece e
+INNER JOIN 
+    identification i ON e.ID_observation = i.ID_observation
+INNER JOIN 
+    site s ON i.id_date = s.id_date
+"
+
+# Exécuter la requête et stocker les résultats
+donnees8 <- dbGetQuery(con, requete8)
 
 
-#Juste pour faire les changement dans les tables
-dbRemoveTable(con, "date")
-dbRemoveTable(con, "site")
-dbRemoveTable(con, "identification")
-dbRemoveTable(con, "espece")
 
 
 dbDisconnect(con)

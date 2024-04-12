@@ -1,4 +1,5 @@
 ############## ANALYSE DES DONNÉES ET CRÉATION DE GRAPHIQUES
+
 library(ggplot2)
 
 # Abondance en fonction de la largeur de la rivière (histogramme de points - visualisation mauvaise)
@@ -10,6 +11,7 @@ ggplot(donnees1, aes(x = largeur_riviere, y = abondance, color = nom_sci)) +
        y = "Abondance") +
        theme_minimal() +
          theme(legend.position = "none")
+
 
 
 # RÉGRESSION LINÉAIRE
@@ -67,13 +69,26 @@ ggplot(donnees4, aes(x = donnees4$vitesse_courant, y = abondance_totale_log)) +
   theme_minimal()
 
 
-# Créer le graphique de l'abondance totale en fonction de la profondeur de la riviere et les differentes classes de transparence de l'eau
-# Notez que l'axe des y est transformé en échelle logarithmique comme illustré dans l'image
+###########
 
-ggplot(donnees5, aes(x = profondeur_riviere, y = abondance_totale, color = transparence_eau)) +
+donnees5<- na.omit(donnees5)
+
+# Créer le modèle de régression linéaire
+model5 <- lm(famille ~ temperature_eau_c, data = donnees5)
+
+# Résumé du modèle
+summary(model5)
+
+# Créer un graphique de la régression
+ggplot(donnees5, aes(x = temperature_eau_c, y = famille)) +
   geom_point() +
-  labs(x = "Profondeur de la rivière", y = "Abondance totale", color = "Transparence de l'eau") +
-  theme_minimal()
+  geom_smooth(method = "lm", col = "blue") +
+  labs(title = "Régression linéaire de la Famille en fonction de la Température de l'eau",
+       x = "Température de l'eau (°C)",
+       y = "Famille")
+
+
+
 
 
 # CRÉATION DE LA FIGURE - temperature eau
@@ -92,10 +107,9 @@ ggplot(donnees6, aes(x = donnees6$temperature_eau_c, y = donnees6$abondance_tota
        y = "Abondance totale en benthos") +
   theme_minimal()
 
-unique(combined_data$nom_sci)
 
+#########
 
-#derniere figure!!
 install.packages("GGally")
 library(GGally)
 
@@ -122,3 +136,30 @@ ggpairs(donnees7,
         lower = list(continuous = custom_fn),
         diag = list(continuous = wrap("densityDiag", size = 0.5))
 )
+
+###########
+
+donnees8 <- na.omit(donnees8)
+
+# Calculer les moyennes par famille
+donnees8_agg <- donnees8 %>%
+  group_by(famille) %>%
+  summarise(vitesse_moyenne = mean(vitesse_courant, na.rm = TRUE),
+            temp_moyenne = mean(temperature_eau_c, na.rm = TRUE))
+
+# Réaliser la régression linéaire multiple
+model8 <- lm(vitesse_moyenne ~ temp_moyenne, data = donnees8_agg)
+
+# Afficher le résumé du modèle
+summary(model8)
+
+ggplot(donnees8_agg, aes(x = temp_moyenne, y = vitesse_moyenne, color = famille)) +
+  geom_point() +  # Utiliser des points de couleur variable selon 'famille'
+  geom_smooth(method = "lm", color = "blue") +
+  labs(title = "Régression linéaire de la Vitesse Moyenne en fonction de la Température Moyenne",
+       x = "Température Moyenne de l'Eau (°C)",
+       y = "Vitesse Moyenne du Courant (m/s)",
+       color = "Famille") +  # Modifier ici pour définir le titre de la légende
+  scale_color_manual(values = rainbow(n = length(unique(donnees8_agg$famille)))) +  # Assigner une couleur unique par famille
+  theme_minimal() +  # Utiliser un thème minimal pour une meilleure visualisation
+  theme(legend.title = element_text(size = 12))  # Modifier la taille du texte de la légende
