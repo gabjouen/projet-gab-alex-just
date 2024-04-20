@@ -4,7 +4,7 @@ library(targets)
 # _targets.R file
 # ===========================================
 # Dépendances
-tar_option_set(packages = c("RSQLite", "DBI","dplyr","tidyverse"))
+# si un des packages manque -> tar_option_set(packages = c("RSQLite", "DBI","dplyr","tidyverse"))
 library(targets)
 
 # Scripts R
