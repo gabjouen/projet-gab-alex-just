@@ -97,7 +97,7 @@ dbRemoveTable(con, "espece")
 
 # extraction des donnees necessaires pour nos 3 figures
 requete1 <- "
-SELECT espece.nom_sci, espece.abondance, site.largeur_riviere, site.profondeur_riviere, site.vitesse_courant
+SELECT espece.nom_sci, espece.abondance_totale, site.largeur_riviere, site.profondeur_riviere, site.vitesse_courant
 FROM espece
 JOIN identification ON espece.ID_observation = identification.ID_observation
 JOIN site ON identification.id_date = site.id_date

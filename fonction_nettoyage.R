@@ -245,7 +245,7 @@ combined_data <-combined_data[!duplicated(combined_data),]
 telechargement <- function(combined_data){
   
   # Definition du chemin de fichier
-  chemin_telechargement <- "C:/Users/gabin/OneDrive/Documents/School/session hiver 2024/Ecologie computionelle/projet/projet-gab-alex-just"
+  chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just"
 
   # Nom du fichier CSV de sortie
   nom_fichier <- "combined_data.csv"
