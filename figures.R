@@ -164,3 +164,32 @@ ggplot(donnees8_agg, aes(x = temp_moyenne, y = vitesse_moyenne, color = famille)
   theme_minimal() +  # Utiliser un thème minimal pour une meilleure visualisation
   theme(legend.title = element_text(size = 12))  # Modifier la taille du texte de la légende
 
+
+###############
+
+library(RMySQL)
+
+# Tout d'abord, on transforme l'abondance totale en numérique si ce n'est pas déjà fait
+donnees9$abondance_totale <- as.numeric(donnees9$abondance_totale)
+
+# Ensuite, on exécute une ANOVA
+resultat_anova <- aov(abondance_totale ~ transparence_eau, data = donnees9)
+
+# On affiche le résumé de l'ANOVA pour voir les résultats
+summary(resultat_anova)
+install.packages("multcomp")
+library(multcomp)
+
+# Nous supposons que 'resultat_anova' est votre objet aov déjà créé
+tukey_test <- TukeyHSD(resultat_anova)
+
+# Afficher les résultats du test de Tukey
+print(tukey_test)
+
+ggplot(donnees9, aes(x = transparence_eau, y = abondance_totale)) + 
+  geom_boxplot() +
+  scale_y_log10() + # Ceci met l'échelle de l'axe des y en logarithmique
+  xlab('Transparence') +
+  ylab('Abondance (logarithmique)') + # Mise à jour de l'étiquette pour refléter l'échelle logarithmique
+  ggtitle('Abondance totale en fonction de la transparence de l’eau (échelle logarithmique)') +
+  theme_minimal()

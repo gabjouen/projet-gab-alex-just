@@ -195,6 +195,13 @@ INNER JOIN
 donnees8 <- dbGetQuery(con, requete8)
 
 
+requete9 <- "
+SELECT e.abondance_totale, s.transparence_eau
+FROM espece e
+JOIN identification i ON e.ID_observation = i.ID_observation
+JOIN site s ON i.id_date = s.id_date;
+"
+donnees9 <- dbGetQuery(con, requete9)
 
 
 dbDisconnect(con)
