@@ -1,7 +1,7 @@
 #COMMANDES SQL!!!
 
 # OUVRIR LA CONNECTION
-install.packages("RSQLite")
+#install.packages("RSQLite")
 library(RSQLite)
 library(DBI)
 con <- dbConnect(RSQLite::SQLite(), dbname="reseau_data")

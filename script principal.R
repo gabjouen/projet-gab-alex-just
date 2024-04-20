@@ -35,3 +35,4 @@ trans_data
 
 #suppression des colonnes ayant des valeurs NULL
 source("") 
+
