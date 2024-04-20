@@ -23,7 +23,7 @@ list(
   # Target pour le chemin du fichier de données
   tar_target(
     name = chemin,
-    command = "C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just", # Remplacez par le chemin réel de votre fichier de données
+    command = ".", # Remplacez par le chemin réel de votre fichier de données
     format = "file"
   ),
   # Target pour les commandes SQL
