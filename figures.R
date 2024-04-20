@@ -4,7 +4,7 @@ library(ggplot2)
 
 # Abondance en fonction de la largeur de la rivière (histogramme de points - visualisation mauvaise)
 
-ggplot(donnees1, aes(x = largeur_riviere, y = abondance, color = nom_sci)) +
+ggplot(donnees1, aes(x = largeur_riviere, y = abondance_totale, color = nom_sci)) +
   geom_point() +
   labs(title = "Abondance du benthos en fonction de la largeur de la rivière",
        x = "Largeur de la rivière (m)",
@@ -57,7 +57,7 @@ ggplot(donnees3, aes(x = donnees3$profondeur_riviere, y = abondance_totale_log))
 abondance_totale_log <- log(donnees4$abondance_totale)
 
 modele_log_vit <- lm(donnees4$vitesse_courant ~ abondance_totale_log, data = donnees4)
-
+summary(modele_log_vit)
 r2_vit <- summary(modele_log_vit)$r.squared
 
 ggplot(donnees4, aes(x = donnees4$vitesse_courant, y = abondance_totale_log)) +
@@ -74,7 +74,7 @@ ggplot(donnees4, aes(x = donnees4$vitesse_courant, y = abondance_totale_log)) +
 donnees5<- na.omit(donnees5)
 
 # Créer le modèle de régression linéaire
-model5 <- lm(famille ~ temperature_eau_c, data = donnees5)
+model5 <- lm(donnees5$famille ~ donnees5$temperature_eau_c, data = donnees5)
 
 # Résumé du modèle
 summary(model5)
@@ -163,3 +163,4 @@ ggplot(donnees8_agg, aes(x = temp_moyenne, y = vitesse_moyenne, color = famille)
   scale_color_manual(values = rainbow(n = length(unique(donnees8_agg$famille)))) +  # Assigner une couleur unique par famille
   theme_minimal() +  # Utiliser un thème minimal pour une meilleure visualisation
   theme(legend.title = element_text(size = 12))  # Modifier la taille du texte de la légende
+
