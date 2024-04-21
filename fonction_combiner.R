@@ -21,6 +21,4 @@ combine_csv_files <- function(folder_path) {
   }
 }
 
-# Repertoire contenant les fichiers CSV
-folder_path <- "C:/Users/ALEXIS/OneDrive/Bureau/Éco computationnelle/Atelier 1/benthos/benthos"
-combined_data <- combine_csv_files(folder_path)
+
