@@ -14,8 +14,7 @@ convertir_heure <- function(heure) {
   return(heure_convertie)
 }
 
-# Appliquer la fonction de conversion à la colonne "heure_obs"
-combined_data$heure_obs <- sapply(combined_data$heure_obs, convertir_heure)
+
 
 
 

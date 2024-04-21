@@ -12,68 +12,39 @@ source("commandes_SQL.R")
 source("fonction_combiner.R")
 source("fonction_heure.R")
 source("fonction_nettoyage.R")
-source("script_principal.R")
-source("table_1.R")
-source("table_2.R")
-source("table_3.R")
-source("table_4.R")
+source("requetes.R")
+source("figures.R")
 
 # Pipeline
 list(
-  # Target pour le chemin du fichier de données
   tar_target(
-    name = chemin,
-    command = ".", # Remplacez par le chemin réel de votre fichier de données
-    format = "file"
+    name = combinaison_donnees,
+    command = combine_csv_files("données") # combinaison des fichiers excel
+    
   ),
-  # Target pour les commandes SQL
   tar_target(
-    name = commandes_sql,
-    command = script_commandes_sql() # Fonction à définir dans commandes_SQL.R
+    name = nettoyage_donnees,
+    command = nettoyage("combinaison_donnees") # nettoyage des donnees (uniformisation heure, suppression doublons et donnees non retenues et creation de colonnes)
   ),
-  
-  # Target pour la combinaison des données
   tar_target(
-    name = donnees_combinees,
-    command = combiner_donnees(commandes_sql) # Fonction à définir dans fonction_combiner.R
+    name = telechargement_donnees,
+    command = telechargement("combined_data") #telechargement de la base de donnees dans le projet 
+    
   ),
-  
-  # Target pour le traitement des heures
   tar_target(
-    name = donnees_heure,
-    command = traiter_heure(donnees_combinees) # Fonction à définir dans fonction_heure.R
+    name = creation_tables,
+    command = commande("combined_data") #creation des tables sql et injection des donnees via les 4 dataframes 
+    
   ),
-  
-  # Target pour le nettoyage des données
   tar_target(
-    name = donnees_nettoyees,
-    command = nettoyer_donnees(donnees_heure) # Fonction à définir dans fonction_nettoyage.R
+    name = Requetes,
+    command = requetes_sql("liste_tables") #requetes SQL pour recuperer les donnees issus des tables afin de repondre a nos questions biologiques
+    
   ),
-  
-  # Target pour l'exécution du script principal
   tar_target(
-    name = resultat_final,
-    command = script_principal(donnees_nettoyees) # Fonction à définir dans script principal.R
-  ),
-  
-  # Targets pour les différentes tables
-  tar_target(
-    name = table1,
-    command = generer_table_1(donnees_nettoyees) # Fonction à définir dans table_1.R
-  ),
-  
-  tar_target(
-    name = table2,
-    command = generer_table_2(donnees_nettoyees) # Fonction à définir dans table_2.R
-  ),
-  
-  tar_target(
-    name = table3,
-    command = generer_table_3(donnees_nettoyees) # Fonction à définir dans table_3.R
-  ),
-  
-  tar_target(
-    name = table4,
-    command = generer_table_4(donnees_nettoyees) # Fonction à définir dans table_4.R
+    name = Figures,
+    command = figures("liste_requetes") #creations de 3 figures a partir des requetes 
+    
   )
 )
+
