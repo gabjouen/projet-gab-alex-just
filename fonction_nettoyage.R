@@ -5,8 +5,6 @@ library(tidyverse) # nous utilisons ce package car cela permet d'avoir une synta
 
 
 
-################ Fonction qui place la les valeurs (elever, moyenne et faible) en ordre de niveau
-
 convert_transparence_eau <- function(combined_data) {
  
   combined_data$transparence_eau<- as.factor(combined_data$transparence_eau)
