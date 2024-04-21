@@ -24,7 +24,7 @@ list(
   ),
   tar_target(
     name = nettoyage_donnees,
-    command = nettoyage("combinaison_donnees") # nettoyage des donnees (uniformisation heure, suppression doublons et donnees non retenues et creation de colonnes)
+    command = nettoyage(combinaison_donnees) # nettoyage des donnees (uniformisation heure, suppression doublons et donnees non retenues et creation de colonnes)
   ),
   tar_target(
     name = telechargement_donnees,
