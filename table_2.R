@@ -5,3 +5,4 @@ date <- function(tab2){
 }
 
 date = combined_data[,c("date","heure_obs","id_date")]
+date <-date[!duplicated(date),]

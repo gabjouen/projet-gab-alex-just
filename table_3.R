@@ -7,3 +7,4 @@ site <- function(tab3){
 
 site = combined_data[,c("site","largeur_riviere","profondeur_riviere","vitesse_courant",
                         "transparence_eau","temperature_eau_c","id_date")]
+site<-site[!duplicated(site),]
