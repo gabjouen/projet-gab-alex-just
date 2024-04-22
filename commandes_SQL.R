@@ -71,23 +71,6 @@ dbDisconnect(con)
 return(liste_tables)
 }
 
-commande(combined_data)
-
-
-dbDisconnect(con)
-
-
-
-
-
-
-
-
-#Juste pour faire les changement dans les tables
-dbRemoveTable(con, "date")
-dbRemoveTable(con, "site")
-dbRemoveTable(con, "identification")
-dbRemoveTable(con, "espece")
 
 
 

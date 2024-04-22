@@ -16,6 +16,8 @@ combine_csv_files <- function(folder_path) {
     # Lire et combiner tous les fichiers CSV en une seule base de données
     combined_data <- bind_rows(lapply(csv_files, read.csv))
     
+    combined_data = as.data.frame(combined_data)
+    
     # Retourner la base de données combinée
     return(combined_data)
   }

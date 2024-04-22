@@ -3,19 +3,7 @@
 install.packages("tidyverse")
 library(tidyverse) # nous utilisons ce package car cela permet d'avoir une syntaxe coherente, une facilite d'utilisation et des puissantes capacites de manipulation de donnees
 
-
-
-convert_transparence_eau <- function(combined_data) {
- 
-  combined_data$transparence_eau<- as.factor(combined_data$transparence_eau)
-  # Modification de la colonne transparence_eau
-  data_transpa <- factor(combined_data$transparence_eau, levels = c("élevée", "moyenne", "faible"))
-  # Retourner la base de données modifiée
-  levels(combined_data$transparence_eau)
-}  
-
-
-
+source("fonction_heure.R")
 nettoyage<-function(combined_data){
   
   
@@ -24,12 +12,10 @@ nettoyage<-function(combined_data){
   
   # Modification de la colonne transparence_eau
   combined_data$transparence_eau<- as.factor(combined_data$transparence_eau)
-  combined_data <- factor(combined_data$transparence_eau, levels = c("élevée", "moyenne", "faible"))
+  combined_data$transparence_eau <- factor(combined_data$transparence_eau, levels = c("élevée", "moyenne", "faible"))
   
   ####################### Donnees retenues et ajouts de colonnes (ID_observation et id_date) 
   #suprression des colonnes non retenues du au manque de donnees
-  combined_data <-  combined_data[, -c(13:30)]
-  combined_data <-  combined_data[, -3]
   combined_data <-  combined_data[-c(1920:1947),]# nous avons enlever les observation d'un site car les valeurs étaient aberrantes comparer aux autres
   combined_data$ID_observation<- c(1:1978)
   
@@ -229,30 +215,5 @@ nettoyage<-function(combined_data){
   return(combined_data)
 }
 
-nettoyage(combined_data)
 
 
-
-
-################### telechager la BD finale dans notre projet
-
-telechargement <- function(combined_data){
-  
-  # Definition du chemin de fichier
-  chemin_telechargement <- "C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just"
-
-  # Nom du fichier CSV de sortie
-  nom_fichier <- "combined_data.csv"
-
-  # Chemin complet du fichier de sortie
-  chemin_complet <- file.path(chemin_telechargement, nom_fichier)
-
-  # Sauvegarde du tableau en tant que fichier CSV
-  write.csv(combined_data, file = chemin_complet, row.names = FALSE)
-
-  # Affichage d'un message indiquant que le fichier a pu etre enregistrer avec succes
-  cat("Le fichier", nom_fichier, "a pu etre enregistrer sur votre projet.\n")
-
-}
-
-telechargement(combined_data)

@@ -1,5 +1,10 @@
-install.packages("targets")
 library(targets)
+install.packages("tarchetypes")
+install.packages("rticles")
+install.packages("tinytex")
+library(tarchetypes)
+library(rticles)
+library(tinytex)
 # ===========================================
 # _targets.R file
 # ===========================================
@@ -25,29 +30,26 @@ list(
   tar_target(
     name = nettoyage_donnees,
     command = nettoyage(combinaison_donnees) # nettoyage des donnees (uniformisation heure, suppression doublons et donnees non retenues et creation de colonnes)
+  ),
+  tar_target(
+  name = creation_tables,
+  command = commande(nettoyage_donnees) #creation des tables sql et injection des donnees via les 4 dataframes 
+  
+  ),
+  tar_target(
+  name = Requetes,
+  command = requetes_sql(creation_tables) #requetes SQL pour recuperer les donnees issus des tables afin de repondre a nos questions biologiques
+  
+  ),
+  tar_target(
+  name = Figures,
+  command = figures(Requetes) #creations de 3 figures a partir des requetes 
+  
+  ),
+  tar_render(
+    name = Rapport,
+    path = "cahier laboratoire.Rmd" 
   )
+)  
 
-)
-,
-  tar_target(
-    name = telechargement_donnees,
-    command = telechargement("combined_data") #telechargement de la base de donnees dans le projet 
-    
-  ),
-  tar_target(
-    name = creation_tables,
-    command = commande("combined_data") #creation des tables sql et injection des donnees via les 4 dataframes 
-    
-  ),
-  tar_target(
-    name = Requetes,
-    command = requetes_sql("liste_tables") #requetes SQL pour recuperer les donnees issus des tables afin de repondre a nos questions biologiques
-    
-  ),
-  tar_target(
-    name = Figures,
-    command = figures("liste_requetes") #creations de 3 figures a partir des requetes 
-    
-  )
-)
 

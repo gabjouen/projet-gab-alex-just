@@ -1,11 +1,12 @@
 ############## ANALYSE DES DONNÉES ET CRÉATION DE GRAPHIQUES
 library(ggplot2)
-install.packages("GGally")
 library(GGally)
 
 figures <- function (liste_requetes){
 
 # S'assurer que les données sont numériques et qu'il n'y a pas de NA
+donnees7<-liste_requetes[1]
+donnees7 = as.data.frame(donnees7)
 donnees7 <- na.omit(donnees7)
 donnees7$largeur_riviere <- as.numeric(donnees7$largeur_riviere)
 donnees7$profondeur_riviere <- as.numeric(donnees7$profondeur_riviere)
@@ -16,8 +17,9 @@ donnees7$abondance_totale <- as.numeric(donnees7$abondance_totale)
 # Créer la matrice de corrélation avec GGally
 
 # Définir la fonction personnalisée pour ggpairs
-custom_fn <- function(data, mapping, ...){
-  ggplot(data = data, mapping = mapping) +
+custom_fn <- function(data1, mapping, ...){
+  data1 = as.data.frame(data1)
+  ggplot(data = data1, mapping = mapping) +
     geom_point(color = "blue", size = 1, ...) +
     geom_smooth(method = "lm", color = "red", ...)
 }
@@ -33,7 +35,8 @@ figure_3 <- ggpairs(donnees7,
 ########################################################
 
 
-
+donnees8<-liste_requetes[2]
+donnees8 = as.data.frame(donnees8)
 donnees8 <- na.omit(donnees8)
 
 # Calculer les moyennes par famille
@@ -63,6 +66,8 @@ figure_1 <- ggplot(donnees8_agg, aes(x = temp_moyenne, y = vitesse_moyenne, colo
 
 ########################################################
 
+donnees9<-liste_requetes[3]
+donnees9 = as.data.frame(donnees9)
 
 library(RMySQL)
 
@@ -95,7 +100,6 @@ liste_figures <- list(figure_1,figure_2,figure_3)
 return(liste_figures)
 }
 
-figures(liste_figures)
 
 
 
@@ -104,109 +108,3 @@ figures(liste_figures)
 
 
 
-#############################################
-#FIGURES NON RETENUES
-# Abondance en fonction de la largeur de la rivière (histogramme de points - visualisation mauvaise)
-
-ggplot(donnees1, aes(x = largeur_riviere, y = abondance_totale, color = nom_sci)) +
-  geom_point() +
-  labs(title = "Abondance du benthos en fonction de la largeur de la rivière",
-       x = "Largeur de la rivière (m)",
-       y = "Abondance") +
-  theme_minimal() +
-  theme(legend.position = "none")
-
-
-
-# RÉGRESSION LINÉAIRE
-
-# CRÉATION DE LA FIGURE - largeur
-
-donnees2$largeur_riviere <- log(donnees2$largeur_riviere)
-donnees2$abondance_totale <- log(donnees2$abondance_totale)
-modele_log_larg <- lm(donnees2$largeur_riviere ~ donnees2$abondance_totale, data = donnees2)
-
-#CALCUL R2
-
-r2 <- summary(modele_log_larg)$r.squared
-
-ggplot(donnees2, aes(x = donnees2$largeur_riviere, y = donnees2$abondance_totale)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "blue") +
-  labs(title = "Régression linéaire (log) entre la largeur de la rivière et l'abondance totale en benthos",
-       x = "Largeur de la rivière (m)",
-       y = "Abondance totale en benthos") +
-  theme_minimal()
-
-
-# CRÉATION DE LA FIGURE - profondeur
-
-abondance_totale_log <- log(donnees3$abondance_totale)
-
-modele_log_prof <- lm(donnees3$profondeur_riviere ~ abondance_totale_log, data = donnees3)
-
-r2_prof <- summary(modele_log_prof)$r.squared
-
-ggplot(donnees3, aes(x = donnees3$profondeur_riviere, y = abondance_totale_log)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "orange") +
-  labs(title = "Régression linéaire entre la largeur de la rivière et l'abondance totale en benthos",
-       x = "Profondeur de la rivière (m)",
-       y = "Abondance totale en benthos (log)") +
-  theme_minimal()
-
-
-# CRÉATION DE LA FIGURE - vitesse du courant
-
-abondance_totale_log <- log(donnees4$abondance_totale)
-
-modele_log_vit <- lm(donnees4$vitesse_courant ~ abondance_totale_log, data = donnees4)
-summary(modele_log_vit)
-r2_vit <- summary(modele_log_vit)$r.squared
-
-ggplot(donnees4, aes(x = donnees4$vitesse_courant, y = abondance_totale_log)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "green") +
-  labs(title = "Régression linéaire entre la largeur de la rivière et l'abondance totale en benthos",
-       x = "Vitesse du courant (m/s)",
-       y = "Abondance totale en benthos (log)") +
-  theme_minimal()
-
-
-###########
-
-donnees5<- na.omit(donnees5)
-
-# Créer le modèle de régression linéaire
-model5 <- lm(donnees5$famille ~ donnees5$temperature_eau_c, data = donnees5)
-
-# Résumé du modèle
-summary(model5)
-
-# Créer un graphique de la régression
-ggplot(donnees5, aes(x = temperature_eau_c, y = famille)) +
-  geom_point() +
-  geom_smooth(method = "lm", col = "blue") +
-  labs(title = "Régression linéaire de la Famille en fonction de la Température de l'eau",
-       x = "Température de l'eau (°C)",
-       y = "Famille")
-
-
-
-
-
-# CRÉATION DE LA FIGURE - temperature eau
-
-modele_log_temp <- lm(donnees6$temperature_eau_c ~ donnees6$abondance_totale, data = donnees6)
-
-#CALCUL R2
-
-r2 <- summary(modele_log_temp)$r.squared
-
-ggplot(donnees6, aes(x = donnees6$temperature_eau_c, y = donnees6$abondance_totale)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "blue") +
-  labs(title = "Régression linéaire (log) entre la température de l'eau et l'abondance totale en benthos",
-       x = "Température de l'eau",
-       y = "Abondance totale en benthos") +
-  theme_minimal()

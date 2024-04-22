@@ -5,7 +5,7 @@ author: "Jouen / Rompré / Gagnon"
 date: "3/28/2024"
 output: html_document
 ---
-
+pnas_type:pnasresearcharticle
 --------------------------------------------------------------------------
 
 TEXTE

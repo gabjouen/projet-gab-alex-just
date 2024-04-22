@@ -64,92 +64,9 @@ return(liste_requetes)
 dbDisconnect(con)
 }
 
-requetes_sql(liste_requetes)
 
 
 
 
 
 
-
-
-
-#####################################################
-#REQUETES NON RETENUES POUR NOS 3 FIGURES
-
-# extraction des donnees necessaires pour nos 3 figures
-requete1 <- "
-SELECT espece.nom_sci, espece.abondance_totale, site.largeur_riviere, site.profondeur_riviere, site.vitesse_courant
-FROM espece
-JOIN identification ON espece.ID_observation = identification.ID_observation
-JOIN site ON identification.id_date = site.id_date
-"
-donnees1 <- dbGetQuery(con, requete1)
-
-
-##################################################
-
-
-requete2 <- "
-SELECT SUM(espece.abondance) AS abondance_totale, site.largeur_riviere
-FROM espece
-JOIN identification ON espece.ID_observation = identification.ID_observation
-JOIN site ON identification.id_date = site.id_date
-GROUP BY site.largeur_riviere
-"
-donnees2 <- dbGetQuery(con, requete2)
-
-
-######################################################
-
-
-requete3 <- "
-SELECT SUM(espece.abondance_totale) AS abondance_totale, site.profondeur_riviere
-FROM espece
-JOIN identification ON espece.ID_observation = identification.ID_observation
-JOIN site ON identification.id_date = site.id_date
-GROUP BY site.profondeur_riviere
-"
-donnees3 <- dbGetQuery(con, requete3)
-
-
-########################################################
-
-
-requete4 <- "
-SELECT SUM(espece.abondance_totale) AS abondance_totale, site.vitesse_courant
-FROM espece
-JOIN identification ON espece.ID_observation = identification.ID_observation
-JOIN site ON identification.id_date = site.id_date
-GROUP BY site.vitesse_courant
-"
-donnees4 <- dbGetQuery(con, requete4)
-
-
-####################################################
-
-requete5 <- "
-SELECT 
-    e.famille,
-    s.temperature_eau_c,
-    e.abondance_totale
-FROM
-    espece e
-JOIN
-    identification i ON e.ID_observation = i.ID_observation
-JOIN
-    site s ON i.id_date = s.id_date
-"
-donnees5 <- dbGetQuery(con, requete5)
-
-######################################################
-
-
-requete6 <- "
-SELECT SUM(espece.abondance_totale) AS abondance_totale, site.temperature_eau_c
-FROM espece
-JOIN identification ON espece.ID_observation = identification.ID_observation
-JOIN site ON identification.id_date = site.id_date
-GROUP BY site.temperature_eau_c
-"
-donnees6 <- dbGetQuery(con, requete6)
