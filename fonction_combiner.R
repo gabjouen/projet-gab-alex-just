@@ -23,4 +23,3 @@ combine_csv_files <- function(folder_path) {
   }
 }
 
-

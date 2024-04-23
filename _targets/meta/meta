@@ -4,10 +4,10 @@ combine_csv_files|function|7574cf9b51f9a7d5|||||||||||||||
 commande|function|80227837f8e70634|||||||||||||||
 convertir_heure|function|13a1bdc9f042045b|||||||||||||||
 creation_tables|stem|ede6c2816665d1fe|f510c7f7fb565b84|27cbdf84bbe62eba|404595331||t19835.0131565055s|a33fb1da66f6e09f|55|rds|local|vector|||0.32|Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows|
-figures|function|5b6f61f0b6b6a366|||||||||||||||
-Figures|stem|fd7b6f0a5e97232b|74d7495a86bc016e|68c83ca46d966f04|1617285647||t19835.0240744072s|ddcf6e99e172fc30|444460|rds|local|vector|||3.45||
+figures|function|098c541e7cc9af9b|||||||||||||||
+Figures|stem|ee7206f3e955b6b9|74d7495a86bc016e|0bb53a2a1a3295fa|1617285647||t19836.912425883s|946c45618bc21d23|437774|rds|local|vector|||11.14|Production de NaN. log10 transformation introduced infinite values.. Removed 3 rows containing nonfinite outside the scale rangestat_boxplot.|
 nettoyage|function|bccb7fe6a4086f8b|||||||||||||||
 nettoyage_donnees|stem|2d26a0e45bb1f4c6|80d6b89d64265bfa|7aba1344db3fba42|-2082363653||t19835.0110195866s|4c7d0f1621dd56cc|25849|rds|local|vector|||0.09||
-Rapport|stem|14066ee2f6c373b5|493b8ffd9e12206d|2c530c1562a7fbd1|-254376993|cahier-laboratoire.html*cahier laboratoire.Rmd|t19835.0292376307s|e12cbd93b8ba486a|644549|file|local|vector|||3.75||
+Rapport|stem|3a7e6ea04d8ec16b|493b8ffd9e12206d|2c530c1562a7fbd1|-254376993|cahier-laboratoire.html*cahier laboratoire.Rmd|t19836.7939305264s|b8f9963cb62011f5|644677|file|local|vector|||3.79||
 Requetes|stem|1470ff467fe31297|f284e3e29cf6b385|4298018015cd04f4|-710102168||t19835.0131574738s|4b5f70025ae25838|12036|rds|local|vector|||0.06||
 requetes_sql|function|71436a349cf91aa4|||||||||||||||

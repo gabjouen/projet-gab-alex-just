@@ -31,6 +31,7 @@ figure_3 <- ggpairs(donnees7,
         diag = list(continuous = wrap("densityDiag", size = 0.5))
 )
 
+save_3<-ggsave("figure_3.png", figure_3, width = 10, height = 6, dpi = 300)
 
 ########################################################
 
@@ -54,7 +55,7 @@ summary(model8)
 figure_1 <- ggplot(donnees8_agg, aes(x = temp_moyenne, y = vitesse_moyenne, color = famille)) +
   geom_point() +  # Utiliser des points de couleur variable selon 'famille'
   geom_smooth(method = "lm", color = "blue") +
-  labs(title = "Régression linéaire de la Vitesse Moyenne en fonction de la Température Moyenne",
+  labs(
        x = "Température Moyenne de l'Eau (°C)",
        y = "Vitesse Moyenne du Courant (m/s)",
        color = "Famille") +  # Modifier ici pour définir le titre de la légende
@@ -62,7 +63,7 @@ figure_1 <- ggplot(donnees8_agg, aes(x = temp_moyenne, y = vitesse_moyenne, colo
   theme_minimal() +  # Utiliser un thème minimal pour une meilleure visualisation
   theme(legend.title = element_text(size = 12))  # Modifier la taille du texte de la légende
 
-
+save_1<-ggsave("figure_1.png", figure_1, width = 10, height = 6, dpi = 300, bg ="white")
 
 ########################################################
 
@@ -92,11 +93,13 @@ figure_2 <- ggplot(donnees9, aes(x = transparence_eau, y = abondance_totale)) +
   geom_boxplot() +
   scale_y_log10() + # Ceci met l'échelle de l'axe des y en logarithmique
   xlab('Transparence') +
-  ylab('Abondance (logarithmique)') + # Mise à jour de l'étiquette pour refléter l'échelle logarithmique
-  ggtitle('Abondance totale en fonction de la transparence de l’eau (échelle logarithmique)') +
-  theme_minimal()
+  ylab('Abondance (logarithmique)')  # Mise à jour de l'étiquette pour refléter l'échelle logarithmique
+
+
+save_2<-ggsave("figure_2.png", figure_2, width = 10, height = 6, dpi = 300, bg ="white")
 
 liste_figures <- list(figure_1,figure_2,figure_3)
+liste_saves <- list(save_3,save_1,save_2)
 return(liste_figures)
 }
 
