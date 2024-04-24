@@ -58,38 +58,42 @@ l'Université, Sherbrooke, Québec, J1K 2R1}
 
 
 % Please give the surname of the lead author for the running footer
-\leadauthor{Anonymous}
+\leadauthor{Rompré}
 
 % Please add here a significance statement to explain the relevance of your work
-\significancestatement{Authors must submit a 120-word maximum statement
-about the significance of their research paper written at a level
-understandable to an undergraduate educated scientist outside their
-field of speciality. The primary goal of the Significance Statement is
-to explain the relevance of the work in broad context to a broad
-readership. The Significance Statement appears in the paper itself and
-is required for all research papers.}
+\significancestatement{}
 
 
-\authorcontributions{Please provide details of author contributions
-here.}
+\authorcontributions{}
 
-\authordeclaration{Please declare any conflict of interest here.}
 
-\equalauthors{\textsuperscript{1} A.O.(Author One) and A.T. (Author Two)
-contributed equally to this work (remove if not applicable).}
 
 \correspondingauthor{\textsuperscript{2} To whom correspondence should
 be addressed. E-mail:
 \href{mailto:alexis.rompre@usherbrooke.ca}{\nolinkurl{alexis.rompre@usherbrooke.ca}}}
 
 % Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
- \keywords{  one |  two |  optional |  optional |  optional  } 
+
 
 \begin{abstract}
-Please provide an abstract of no more than 250 words in a single
-paragraph. Abstracts should explain to the general reader the major
-contributions of the article. References in the abstract must be cited
-in full within the abstract itself and cited in the text.
+Dans cette étude, le ministère de l'Environnement du Québec a analysé la
+santé écologique des rivières en mesurant la distribution et l'abondance
+des macroinvertébrés benthiques. Les prélèvements effectués ont permis
+d'examiner l'impact de variables comme la largeur de la rivière, la
+profondeur, la vitesse du courant, la transparence et la température de
+l'eau sur ces communautés. Les résultats révèlent qu'aucune corrélation
+significative n'est observée entre la largeur, la profondeur et la
+vitesse du courant avec l'abondance benthique. Toutefois, la température
+de l'eau montre une légère influence positive. Des corrélations
+importantes existent entre la profondeur et la largeur des rivières, et
+entre ces paramètres et la température, indiquant que des rivières plus
+larges et plus profondes ont tendance à être plus chaudes. La
+transparence de l'eau affecte également l'abondance du benthos, avec des
+niveaux plus élevés dans les eaux moyennement transparentes. Cette
+recherche éclaire les dynamiques fluviales et fournit des données
+essentielles pour la gestion des ressources aquatiques au Québec,
+nécessitant des analyses plus approfondies pour comprendre les
+interactions complexes des écosystèmes aquatiques.
 \end{abstract}
 
 \dates{This manuscript was compiled on \today}
@@ -127,255 +131,189 @@ indicateurs clés de la santé écologique des rivières. Utilisant un filet
 à mailles fines (D-net), les équipes du MELCCFP réalisent des
 prélèvements standardisés sur un effort d'échantillonnage de 3m²,
 effectuant trois passages par site pour maximiser la représentativité
-des données.
-
-Les échantillons récoltés sont ensuite analysés en laboratoire. Sur des
-plateaux de tri, les espèces sont identifiées et dénombrées, bien que
-seulement une fraction de chaque échantillon soit étudiée pour estimer
-l'abondance globale. Cette méthodologie permet de recueillir des
-informations précises sur les populations de macroinvertébrés, qui sont
+des données. Les échantillons récoltés sont ensuite analysés en
+laboratoire. Sur des plateaux de tri, les espèces sont identifiées et
+dénombrées, bien que seulement une fraction de chaque échantillon soit
+identifiée pour estimer l'abondance globale. Ces informations sont
 ensuite reliées à divers paramètres physico-chimiques des sites
 d'échantillonnage, tels que la largeur et la profondeur de la rivière,
-la vitesse du courant, la transparence et la température de l'eau.
+la vitesse du courant, la transparence et la température de l'eau. Cette
+étude scientifique vise à analyser comment ces variables influencent la
+distribution et la densité des communautés benthiques. Les résultats de
+cette recherche fourniront non seulement une meilleure compréhension des
+écosystèmes fluviaux du Québec mais aussi des données essentielles pour
+la gestion durable et la conservation des ressources aquatiques.
 
-Cette étude scientifique vise à analyser comment ces variables
-influencent la distribution et la densité des communautés benthiques.
-Par exemple, la transparence de l'eau, qui peut refléter la
-concentration de matières en suspension, est un facteur potentiellement
-crucial, tout comme la température, qui influence directement le
-métabolisme des organismes aquatiques. Les résultats de cette recherche
-fourniront non seulement une meilleure compréhension des écosystèmes
-fluviaux du Québec mais aussi des données essentielles pour la gestion
-durable et la conservation des ressources aquatiques de la province.
+\hypertarget{Muxe9thode}{%
+\subsection*{Méthode}\label{Muxe9thode}}
+\addcontentsline{toc}{subsection}{Méthode}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth,height=0.4\textheight]{"C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png"}
-\caption{Légende figure. \label{fig:plot1}}
-\end{figure}
+Dans le cadre de notre étude sur l'abondance des macroinvertébrés
+benthiques des rivières québécoises, nous avons exploité une base de
+données existante fournie par le MELCCFP. Après avoir procédé à un
+nettoyage et à une validation rigoureuse des données, nous avons utilisé
+une combinaison d'outils et de techniques pour analyser et présenter nos
+résultats. Le processus a commencé par le nettoyage des données
+écologiques pour éliminer les erreurs et les incohérences, suivi de leur
+validation pour assurer l'exactitude et la fiabilité des informations.
+Les données nettoyées ont été entreposées dans une base de données SQL,
+gérée avec RSQLite pour faciliter la manipulation des données dans
+l'environnement RStudio. Pour garantir la reproductibilité de notre
+recherche, nous avons utilisé Git pour le versionnage du code.
+L'automatisation des scripts d'analyse a été réalisée avec le package «
+targets » dans R, permettant une mise à jour efficace et une exécution
+systématique des analyses. La visualisation des données a joué un rôle
+crucial, utilisant des techniques de conception graphique avancées pour
+illustrer clairement les résultats. Enfin, la communication des
+découvertes scientifiques a été formalisée à travers des rapports
+détaillés en RMarkdown, combinant code, résultats et interprétations
+pour une diffusion transparente et accessible des résultats de la
+recherche.
 
-\hypertarget{guide-to-using-this-template}{%
-\section*{Guide to using this
-template}\label{guide-to-using-this-template}}
-\addcontentsline{toc}{section}{Guide to using this template}
+\hypertarget{Ruxe9sultats}{%
+\subsection*{Résultats}\label{Ruxe9sultats}}
+\addcontentsline{toc}{subsection}{Résultats}
 
-Please note that whilst this template provides a preview of the typeset
-manuscript for submission, to help in this preparation, it will not
-necessarily be the final publication layout. For more detailed
-information please see the
-\href{http://www.pnas.org/site/authors/format.xhtml}{PNAS Information
-for Authors}.
+La largeur, la profondeur et la vitesse du courant de la rivière liée à
+l'abondance totale du benthos, ont montré, respectivement un coefficient
+de corrélation non significatif de -0,026, 0.048 et 0.011, nous
+empêchant donc d'émettre des conclusions entre ces paramètres et
+l'abondance du benthos. Toutefois, la température de l'eau des rivières
+montre une corrélation significative légèrement positive (0.073),
+suggérant une influence minime de ce paramètre sur l'abondance totale du
+benthos. Il est intéressant de constater que des corrélations positives
+significatives sont observées entre la profondeur et la largeur des
+rivières (0.219), la largeur des rivières et la température de l'eau
+(0.290), indiquant que les rivières plus larges et plus profondes
+peuvent avoir des températures plus élevées. Mais aussi entre la
+température de l'eau et la vitesse du courant des rivières (0,332) et
+entre la profondeur et la vitesse du courant des rivières (0,442).
 
-\hypertarget{author-affiliations}{%
-\subsection*{Author Affiliations}\label{author-affiliations}}
-\addcontentsline{toc}{subsection}{Author Affiliations}
+La figure 2 suggère qu'il y a des variations dans l'abondance des
+organismes benthiques entre les différentes classes de transparence. Sur
+une échelle logarithmique, l'abondance tend à être plus élevée dans les
+cours d'eau à transparence élevée et moyenne qu'à transparence faible,
+mais avec une étendue des données notables pour la classe « élevée ».
+Nous avons donc fait un test de Tukey, qui a révélé uniquement une
+différence significative dans l'abondance totale entre les groupes de
+transparence moyenne et faible.
 
-Include department, institution, and complete address, with the
-ZIP/postal code, for each author. Use lower case letters to match
-authors with institutions, as shown in the example. Authors with an
-ORCID ID may supply this information at submission.
-
-\hypertarget{submitting-manuscripts}{%
-\subsection*{Submitting Manuscripts}\label{submitting-manuscripts}}
-\addcontentsline{toc}{subsection}{Submitting Manuscripts}
-
-All authors must submit their articles at
-\href{http://www.pnascentral.org/cgi-bin/main.plex}{PNAScentral}. If you
-are using Overleaf to write your article, you can use the ``Submit to
-PNAS'' option in the top bar of the editor window.
-
-\hypertarget{format}{%
-\subsection*{Format}\label{format}}
-\addcontentsline{toc}{subsection}{Format}
-
-Many authors find it useful to organize their manuscripts with the
-following order of sections; Title, Author Affiliation, Keywords,
-Abstract, Significance Statement, Results, Discussion, Materials and
-methods, Acknowledgments, and References. Other orders and headings are
-permitted.
-
-\hypertarget{manuscript-length}{%
-\subsection*{Manuscript Length}\label{manuscript-length}}
-\addcontentsline{toc}{subsection}{Manuscript Length}
-
-PNAS generally uses a two-column format averaging 67 characters,
-including spaces, per line. The maximum length of a Direct Submission
-research article is six pages and a PNAS PLUS research article is ten
-pages including all text, spaces, and the number of characters displaced
-by figures, tables, and equations. When submitting tables, figures,
-and/or equations in addition to text, keep the text for your manuscript
-under 39,000 characters (including spaces) for Direct Submissions and
-72,000 characters (including spaces) for PNAS PLUS.
-
-\hypertarget{references}{%
-\subsection*{References}\label{references}}
-\addcontentsline{toc}{subsection}{References}
-
-References should be cited in numerical order as they appear in text;
-this will be done automatically via bibtex, e.g. (1) and (2, 3). All
-references, including for the SI, should be included in the main
-manuscript file. References appearing in both sections should not be
-duplicated. SI references included in tables should be included with the
-main reference section.
-
-\hypertarget{data-archival}{%
-\subsection*{Data Archival}\label{data-archival}}
-\addcontentsline{toc}{subsection}{Data Archival}
-
-PNAS must be able to archive the data essential to a published article.
-Where such archiving is not possible, deposition of data in public
-databases, such as GenBank, ArrayExpress, Protein Data Bank, Unidata,
-and others outlined in the Information for Authors, is acceptable.
-
-\hypertarget{language-editing-services}{%
-\subsection*{Language-Editing
-Services}\label{language-editing-services}}
-\addcontentsline{toc}{subsection}{Language-Editing Services}
-
-Prior to submission, authors who believe their manuscripts would benefit
-from professional editing are encouraged to use a language-editing
-service (see list at www.pnas.org/site/authors/language-editing.xhtml).
-PNAS does not take responsibility for or endorse these services, and
-their use has no bearing on acceptance of a manuscript for publication.
+La figure 3 illustré ci-dessus présente une régression linéaire (ligne
+bleue) entre la vitesse moyenne du courant (m/s) et la température
+moyenne de l'eau (°C). Celle-ci montre une relation significative entre
+les deux attributs (p-value = 3,064 x 10-11***) ainsi qu'un R2 de
+0,5216. Une telle relation est couramment exploitée en écologie et
+hydrologie pour évaluer les répercussions de la température sur les
+systèmes aquatiques (1). L'intervalle de confiance (bande grise)
+entourant la ligne de régression indique la fiabilité des prédictions
+obtenues pour divers degrés de température.
 
 \begin{figure}
 \centering
-\includegraphics{frog.png}
-\caption{Placeholder image of a frog with a long example caption to show
-justification setting.{}}
+\includegraphics[width=0.5\textwidth,height=0.26\textheight]{"C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_3.png"}
+\caption{Corrélation entre paramètres physiques des rivières et
+abondance des macro-invertébrés benthiques, avec diagrammes de
+dispersion et densité. \label{fig:plot1}}
 \end{figure}
 
-\hypertarget{sec:figures}{%
-\subsection*{Digital Figures}\label{sec:figures}}
-\addcontentsline{toc}{subsection}{Digital Figures}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=0.26\textheight]{"C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png"}
+\caption{Relation entre la vitesse moyenne du courant et la température
+moyenne du cours d'eau avec la position des taxons associés.
+\label{fig:plot1}}
+\end{figure}
 
-Only TIFF, EPS, and high-resolution PDF for Mac or PC are allowed for
-figures that will appear in the main text, and images must be final
-size. Authors may submit U3D or PRC files for 3D images; these must be
-accompanied by 2D representations in TIFF, EPS, or high-resolution PDF
-format. Color images must be in RGB (red, green, blue) mode. Include the
-font files for any text.
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=0.26\textheight]{"C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png"}
+\caption{Relation entre la transparence de l'eau (élevée, moyenne et
+faible) et l'abondance totale des organismes benthiques .
+\label{fig:plot1}}
+\end{figure}
 
-Figures and Tables should be labelled and referenced in the standard way
-using the \texttt{\textbackslash{}label\{\}} and
-\texttt{\textbackslash{}ref\{\}} commands.
+\hypertarget{Discussion}{%
+\subsection*{Discussion}\label{Discussion}}
+\addcontentsline{toc}{subsection}{Discussion}
 
-Figure \[fig:frog\] shows an example of how to insert a column-wide
-figure. To insert a figure wider than one column, please use the
-\texttt{\textbackslash{}begin\{figure*\}...\textbackslash{}end\{figure*\}}
-environment. Figures wider than one column should be sized to 11.4 cm or
-17.8 cm wide.
+La matrice de corrélation présentée à la figure 1 fournit une vue
+d'ensemble des relations potentielles entre les paramètres physiques des
+rivières soit la profondeur (m), la largeur (m), la vitesse du courant
+(m/s) et la température de l'eau (°C). Nous souhaitions observer des
+corrélations entre ces différentes caractéristiques et l'abondance
+totale des organismes benthiques. Les corrélations significatives dans
+la figure 1 sont en accord avec les résultats retrouvés dans la
+littérature scientifique. En effet, des études antérieures montrent
+souvent une corrélation positive entre l'abondance du benthos et la
+température de l'eau qui peut affecter leur métabolisme, leur taux de
+croissance ainsi que leur reproduction (2, 3). Ces résultats nous
+montrent que, bien que certaines relations entre les caractéristiques
+physiques des rivières et l'abondance benthique ne soient pas
+significatives, d'autres, telles que la température de l'eau, peuvent
+avoir un impact, bien que faible, sur l'abondance du benthos dans les
+rivières. Il est important de comprendre que ces corrélations
+n'impliquent pas nécessairement une relation de cause à effet et que des
+analyses plus approfondies seraient nécessaires pour démystifier les
+interactions complexes au sein de ces écosystèmes aquatiques.
 
-\hypertarget{single-column-equations}{%
-\subsection*{Single column equations}\label{single-column-equations}}
-\addcontentsline{toc}{subsection}{Single column equations}
+L'interprétation écologique de la figure 2 lie la transparence de l'eau,
+indice de sa qualité, à l'abondance du benthos. Une eau claire,
+indiquant peu de particules en suspension, laisse pénétrer davantage de
+lumière, stimulant la photosynthèse et la productivité primaire,
+bénéficiant ainsi à la chaîne alimentaire disponible pour les organismes
+benthiques. À l'inverse, une eau trouble, avec une faible transparence
+due à une turbidité élevée, limite l'exposition à la lumière et peut
+réduire la disponibilité alimentaire pour le benthos. La présence de
+variations significatives dans les données suggère l'influence d'autres
+facteurs environnementaux, indiquant des interactions écologiques
+complexes influençant les organismes benthiques. Les écarts importants
+et valeurs aberrantes dans les données nécessitent une exploration plus
+approfondie, et des analyses statistiques supplémentaires pourraient
+clarifier les mécanismes sous-jacents. Les avis scientifiques divergent
+; l'étude de Lunt et Smee révèle que la turbidité peut favoriser une
+plus grande abondance benthique en offrant un refuge contre les
+prédateurs (4). Tandis que Norton note que la prédation est plus élevée
+dans les eaux claires, réduisant ainsi l'abondance benthique (5).
+Cependant, l'étude de Bigham a eu du mal à démontrer des liens
+significatifs entre la turbidité et les communautés benthiques en raison
+de réponses variables entre différentes familles, soulignant le besoin
+de recherches futures pour des conclusions définitives (6).
 
-Authors may use 1- or 2-column equations in their article, according to
-their preference.
+L'objectif de la figure 3 était de déterminer l'influence de la
+température sur la vélocité des cours d'eau, tout en explorant les
+potentiels variations de cette influence sur différents taxons
+benthiques. Ainsi, la tendance positive qui émerge de l'analyse,
+suggérant une augmentation de la vitesse du courant en relation avec
+l'élévation de la température, est une conséquence probable de la
+réduction de la densité de l'eau chaude, ce qui diminue la friction et
+favorise un écoulement plus aisé de l'eau. L'hétérogénéité des points de
+données révèle que les taxons de macro-invertébrés montrent des vitesses
+de courant variables à des températures identiques, reflétant des
+préférences écologiques ou des tolérances spécifiques aux gradients de
+température et de courant. Par exemple, des organismes tels que certains
+Trichoptères, qui nécessitent des eaux calmes et des substrats stables
+pour s'accrocher ou ériger des habitats (7), contrastent avec des taxons
+comme les Pteronarcyidae, qui prospèrent dans des courants plus vifs,
+favorables à leur oxygénation et à l'apport en nutriments (8). En outre,
+la température est un facteur déterminant du métabolisme benthique,
+influençant la croissance, la reproduction et la survie. Les
+températures accrues peuvent stimuler ces processus jusqu'à une limite,
+au-delà de laquelle les conditions deviennent hostiles (9, 10). Ainsi,
+la distribution des données peut être interprétée comme une cartographie
+des niches écologiques favorables à chaque taxons, délimitées par des
+seuils de températures critiques.
 
-To allow an equation to span both columns, options are to use the
-\texttt{\textbackslash{}begin\{figure*\}...\textbackslash{}end\{figure*\}}
-environment mentioned above for figures, or to use the
-\texttt{\textbackslash{}begin\{widetext\}...\textbackslash{}end\{widetext\}}
-environment as shown in equation \[eqn:example\] below.
+\hypertarget{Conclusion}{%
+\subsection*{Conclusion}\label{Conclusion}}
+\addcontentsline{toc}{subsection}{Conclusion}
 
-Please note that this option may run into problems with floats and
-footnotes, as mentioned in the \href{http://texdoc.net/pkg/cuted}{cuted
-package documentation}. In the case of problems with footnotes, it may
-be possible to correct the situation using commands
-\texttt{\textbackslash{}footnotemark} and
-\texttt{\textbackslash{}footnotetext}.
-
-\[\begin{aligned}
-(x+y)^3&=(x+y)(x+y)^2\\
-       &=(x+y)(x^2+2xy+y^2) \label{eqn:example} \\
-       &=x^3+3x^2y+3xy^3+x^3. 
-\end{aligned}\]
-
-\hypertarget{supporting-information-si}{%
-\subsection*{Supporting Information
-(SI)}\label{supporting-information-si}}
-\addcontentsline{toc}{subsection}{Supporting Information (SI)}
-
-The main text of the paper must stand on its own without the SI. Refer
-to SI in the manuscript at an appropriate point in the text. Number
-supporting figures and tables starting with S1, S2, etc. Authors are
-limited to no more than 10 SI files, not including movie files. Authors
-who place detailed materials and methods in SI must provide sufficient
-detail in the main text methods to enable a reader to follow the logic
-of the procedures and results and also must reference the online
-methods. If a paper is fundamentally a study of a new method or
-technique, then the methods must be described completely in the main
-text. Because PNAS edits SI and composes it into a single PDF, authors
-must provide the following file formats only.
-
-\hypertarget{si-text}{%
-\subsubsection*{SI Text}\label{si-text}}
-\addcontentsline{toc}{subsubsection}{SI Text}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a
-PDF with the same file name for visual reference).
-
-\hypertarget{si-figures}{%
-\subsubsection*{SI Figures}\label{si-figures}}
-\addcontentsline{toc}{subsubsection}{SI Figures}
-
-Provide a brief legend for each supporting figure after the supporting
-text. Provide figure images in TIFF, EPS, high-resolution PDF, JPEG, or
-GIF format; figures may not be embedded in manuscript text. When saving
-TIFF files, use only LZW compression; do not use JPEG compression. Do
-not save figure numbers, legends, or author names as part of the image.
-Composite figures must be pre-assembled.
-
-\hypertarget{d-figures}{%
-\subsubsection*{3D Figures}\label{d-figures}}
-\addcontentsline{toc}{subsubsection}{3D Figures}
-
-Supply a composable U3D or PRC file so that it may be edited and
-composed. Authors may submit a PDF file but please note it will be
-published in raw format and will not be edited or composed.
-
-\hypertarget{si-tables}{%
-\subsubsection*{SI Tables}\label{si-tables}}
-\addcontentsline{toc}{subsubsection}{SI Tables}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a
-PDF with the same file name for visual reference); include only one
-table per file. Do not use tabs or spaces to separate columns in Word
-tables.
-
-\hypertarget{si-datasets}{%
-\subsubsection*{SI Datasets}\label{si-datasets}}
-\addcontentsline{toc}{subsubsection}{SI Datasets}
-
-Supply Excel (.xls), RTF, or PDF files. This file type will be published
-in raw format and will not be edited or composed.
-
-\hypertarget{si-movies}{%
-\subsubsection*{SI Movies}\label{si-movies}}
-\addcontentsline{toc}{subsubsection}{SI Movies}
-
-Supply Audio Video Interleave (avi), Quicktime (mov), Windows Media
-(wmv), animated GIF (gif), or MPEG files and submit a brief legend for
-each movie in a Word or RTF file. All movies should be submitted at the
-desired reproduction size and length. Movies should be no more than 10
-MB in size.
-
-\hypertarget{still-images}{%
-\subsubsection*{Still images}\label{still-images}}
-\addcontentsline{toc}{subsubsection}{Still images}
-
-Authors must provide a still image from each video file. Supply TIFF,
-EPS, high-resolution PDF, JPEG, or GIF files.
-
-\hypertarget{appendices}{%
-\subsubsection*{Appendices}\label{appendices}}
-\addcontentsline{toc}{subsubsection}{Appendices}
-
-PNAS prefers that authors submit individual source files to ensure
-readability. If this is not possible, supply a single PDF file that
-contains all of the SI associated with the paper. This file type will be
-published in raw format and will not be edited or composed.
+En conclusion, le graphique met en lumière la complexité des
+interactions entre les paramètres abiotiques et la biodiversité
+benthique, soulignant l'importance de la température et de la dynamique
+hydraulique dans la structuration des communautés aquatiques. Ces
+observations forment la base d'une compréhension plus approfondie des
+écosystèmes fluviaux, offrant des perspectives essentielles pour la
+conservation et la gestion des ressources aquatiques.
 
 \showmatmethods
 \showacknow
@@ -383,24 +321,75 @@ published in raw format and will not be edited or composed.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{0}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-belkin2002using}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-sinokrot_-stream_2000}{}}%
 \CSLLeftMargin{1. }%
-\CSLRightInline{Belkin M, Niyogi P (2002) Using manifold stucture for
-partially labeled classification. \emph{Advances in Neural Information
-Processing Systems}, pp 929--936.}
+\CSLRightInline{Sinokrot BA, Gulliver JS (2000)
+\href{https://doi.org/10.1080/00221680009498315}{In-stream flow impact
+on river water temperatures}. \emph{Journal of Hydraulic Research}
+38(5):339--349.}
 
-\leavevmode\vadjust pre{\hypertarget{ref-berard1994embedding}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-lenat_effects_1994}{}}%
 \CSLLeftMargin{2. }%
-\CSLRightInline{Bérard P, Besson G, Gallot S (1994) Embedding riemannian
-manifolds by their heat kernel. \emph{Geometric \& Functional Analysis
-GAFA} 4(4):373--398.}
+\CSLRightInline{Lenat DR, Crawford JK (1994)
+\href{https://doi.org/10.1007/BF00021291}{Effects of land use on water
+quality and aquatic biota of three {North} {Carolina} {Piedmont}
+streams}. \emph{Hydrobiologia} 294(3):185--199.}
 
-\leavevmode\vadjust pre{\hypertarget{ref-coifman2005geometric}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-paul_streams_2001}{}}%
 \CSLLeftMargin{3. }%
-\CSLRightInline{Coifman RR, et al. (2005) Geometric diffusions as a tool
-for harmonic analysis and structure definition of data: Diffusion maps.
-\emph{Proceedings of the National Academy of Sciences of the United
-States of America} 102(21):7426--7431.}
+\CSLRightInline{Paul MJ, Meyer JL (2001)
+\href{https://doi.org/10.1146/annurev.ecolsys.32.081501.114040}{Streams
+in the {Urban} {Landscape}}. \emph{Annual Review of Ecology, Evolution,
+and Systematics} 32(Volume 32, 2001):333--365.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-lunt_turbidity_2020}{}}%
+\CSLLeftMargin{4. }%
+\CSLRightInline{Lunt J, Smee DL (2020)
+\href{https://doi.org/10.1093/icesjms/fsz214}{Turbidity alters estuarine
+biodiversity and species composition}. \emph{ICES Journal of Marine
+Science} 77(1):379--387.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-norton_crystal_2023}{}}%
+\CSLLeftMargin{5. }%
+\CSLRightInline{Norton S (2023) Crystal {Clear} {Problems}: {Impacts} of
+{Water} {Transparency} in {Aquatic} {Ecosystems}. \emph{Environmental
+Monitor}. Available at:
+\url{https://www.fondriest.com/news/crystal-clear-problems-impacts-of-water-transparency-in-aquatic-ecosystems.htm}
+{[}Accessed April 24, 2024{]}.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-bigham_review_2021}{}}%
+\CSLLeftMargin{6. }%
+\CSLRightInline{Bigham KT, Rowden AA, Leduc D, Bowden DA (2021)
+\href{https://doi.org/10.5194/bg-18-1893-2021}{Review and syntheses:
+{Impacts} of turbidity flows on deep-sea benthic communities}.
+\emph{Biogeosciences} 18(5):1893--1908.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-mackay_ecological_1979}{}}%
+\CSLLeftMargin{7. }%
+\CSLRightInline{Mackay RJ, Wiggins GB (1979)
+\href{https://doi.org/10.1146/annurev.en.24.010179.001153}{Ecological
+{Diversity} in {Trichoptera}}. \emph{Annual Review of Entomology}
+24(Volume 24, 1979):185--208.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-stewart_front_1988}{}}%
+\CSLLeftMargin{8. }%
+\CSLRightInline{Stewart KW, Stark BP (1988) Front {Matter}. \emph{Nymphs
+of {North} {American} {Stonefly} {Genera} ({Plecoptera})} (Entomological
+Society of America).
+doi:\href{https://doi.org/10.4182/GGDW2452.1988.i}{10.4182/GGDW2452.1988.i}.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-portner_physiology_2008}{}}%
+\CSLLeftMargin{9. }%
+\CSLRightInline{Pörtner HO, Farrell AP (2008)
+\href{https://doi.org/10.1126/science.1163156}{Physiology and {Climate}
+{Change}}. \emph{Science} 322(5902):690--692.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-portner_ecosystem_2008}{}}%
+\CSLLeftMargin{10. }%
+\CSLRightInline{Pörtner H-O (2008)
+\href{https://doi.org/10.3354/meps07768}{Ecosystem effects of ocean
+acidification in times of ocean warming: A physiologist's view}.
+\emph{Marine Ecology Progress Series} 373:203--217.}
 
 \end{CSLReferences}
 
