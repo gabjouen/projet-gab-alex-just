@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.23)  24 APR 2024 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.23)  24 APR 2024 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -920,14 +920,7 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 Package: pnasresearcharticle 2018/05/06 v1.3 PNAS two column research article style
 \@float@every@sigstatement=\toks52
 \c@sigstatement=\count372
-) (./Rapport1.aux
-
-LaTeX Warning: Label `fig:plot1' multiply defined.
-
-
-LaTeX Warning: Label `fig:plot1' multiply defined.
-
-)
+) (./Rapport1.aux)
 \openout1 = `Rapport1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
@@ -1121,7 +1114,7 @@ File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
 
 
 {c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_3.png, id=43, 722.7pt x 433.62pt>
+<C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_3.png, id=45, 722.7pt x 433.62pt>
 File: C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_3.png Graphic file (type png)
 <use C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_3.png>
 Package pdftex.def Info: C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_3.png  used on input line 213.
@@ -1131,17 +1124,17 @@ Overfull \hbox (6.75267pt too wide) in paragraph at lines 213--216
  [][] 
  []
 
-<C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png, id=44, 722.7pt x 433.62pt>
+<C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png, id=46, 722.7pt x 433.62pt>
 File: C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png Graphic file (type png)
 <use C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png>
 Package pdftex.def Info: C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png  used on input line 221.
-(pdftex.def)             Requested size: 252.84953pt x 175.74084pt.
+(pdftex.def)             Requested size: 257.90013pt x 175.74084pt.
 
-Overfull \hbox (6.75267pt too wide) in paragraph at lines 221--224
+Overfull \hbox (11.80327pt too wide) in paragraph at lines 221--224
  [][] 
  []
 
-<C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png, id=45, 722.7pt x 433.62pt>
+<C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png, id=47, 722.7pt x 433.62pt>
 File: C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png Graphic file (type png)
 <use C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png>
 Package pdftex.def Info: C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png  used on input line 229.
@@ -1221,25 +1214,22 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `Rapport1.out' has not changed.
 (rerunfilecheck)             Checksum: 5631B522587768CFBD1B33EA63E297DD;475.
  ) 
 Here is how much of TeX's memory you used:
- 30157 strings out of 476021
- 565444 string characters out of 5789698
+ 30159 strings out of 476021
+ 565466 string characters out of 5789698
  1957496 words of memory out of 5000000
- 51391 multiletter control sequences out of 15000+600000
+ 51393 multiletter control sequences out of 15000+600000
  651440 words of font info for 245 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  117i,14n,121p,1005b,1114s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/ALEXIS/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Rapport1.pdf (3 pages, 850916 bytes).
+Output written on Rapport1.pdf (3 pages, 851098 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 151 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  23 named destinations out of 1000 (max. 500000)
  71236 words of extra memory for PDF output out of 74296 (max. 10000000)
 
