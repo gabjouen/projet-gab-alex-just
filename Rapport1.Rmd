@@ -1,0 +1,83 @@
+---
+title: "Distribution et Abondance des Macroinvertébrés Benthiques en Fonction des Paramètres Fluviaux au Québec : Une Étude Écologique"
+
+# Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
+author:
+  - name: Alexis Rompré
+    affiliation: a,1,2
+  - name: Gabin Jouen
+    affiliation: a,b
+  - name: Justin Gagnon
+    affiliation: b,1,2
+address:
+  - code: a
+    address: Université de Sherbrooke, Department de Biologie, Bd de l'Université, Sherbrooke, Québec, J1K 2R1
+
+corresponding_author:
+  code: 2
+  text: "To whom correspondence should be addressed. E-mail: alexis.rompre@usherbrooke.ca"
+
+# For footer text
+lead_author_surname: Rompré
+
+
+
+abstract: |
+  Dans cette étude, le ministère de l'Environnement du Québec a analysé la santé écologique des rivières en mesurant la distribution et l'abondance des macroinvertébrés benthiques. Les prélèvements effectués ont permis d'examiner l'impact de variables comme la largeur de la rivière, la profondeur, la vitesse du courant, la transparence et la température de l'eau sur ces communautés. Les résultats révèlent qu'aucune corrélation significative n'est observée entre la largeur, la profondeur et la vitesse du courant avec l'abondance benthique. Toutefois, la température de l'eau montre une légère influence positive. Des corrélations importantes existent entre la profondeur et la largeur des rivières, et entre ces paramètres et la température, indiquant que des rivières plus larges et plus profondes ont tendance à être plus chaudes. La transparence de l'eau affecte également l'abondance du benthos, avec des niveaux plus élevés dans les eaux moyennement transparentes. Cette recherche éclaire les dynamiques fluviales et fournit des données essentielles pour la gestion des ressources aquatiques au Québec, nécessitant des analyses plus approfondies pour comprendre les interactions complexes des écosystèmes aquatiques.
+
+
+
+
+acknowledgements: |
+  Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
+
+
+## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
+pnas_type: pnasresearcharticle
+
+bibliography: pnas-sample.bib
+csl: pnas.csl
+
+## change to true to add optional line numbering
+lineno: false
+
+output: rticles::pnas_article
+---
+Introduction {#Introduction .unnumbered}
+------
+Dans le cadre des efforts continus pour comprendre et préserver la qualité des écosystèmes aquatiques au Québec, le ministère de l'Environnement, de la Lutte contre les Changements Climatiques, de la Faune et des Parcs (MELCCFP) a entrepris une série d'inventaires du benthos. Ces inventaires fournissent des données précieuses sur la distribution et l'abondance des macroinvertébrés benthiques, des indicateurs clés de la santé écologique des rivières. Utilisant un filet à mailles fines (D-net), les équipes du MELCCFP réalisent des prélèvements standardisés sur un effort d'échantillonnage de 3m², effectuant trois passages par site pour maximiser la représentativité des données. Les échantillons récoltés sont ensuite analysés en laboratoire. Sur des plateaux de tri, les espèces sont identifiées et dénombrées, bien que seulement une fraction de chaque échantillon soit identifiée pour estimer l'abondance globale. Ces informations sont ensuite reliées à divers paramètres physico-chimiques des sites d'échantillonnage, tels que la largeur et la profondeur de la rivière, la vitesse du courant, la transparence et la température de l'eau. Cette étude scientifique vise à analyser comment ces variables influencent la distribution et la densité des communautés benthiques. Les résultats de cette recherche fourniront non seulement une meilleure compréhension des écosystèmes fluviaux du Québec mais aussi des données essentielles pour la gestion durable et la conservation des ressources aquatiques.
+
+Méthode {#Méthode .unnumbered}
+------
+Dans le cadre de notre étude sur l'abondance des macroinvertébrés benthiques des rivières québécoises, nous avons exploité une base de données existante fournie par le MELCCFP. Après avoir procédé à un nettoyage et à une validation rigoureuse des données, nous avons utilisé une combinaison d'outils et de techniques pour analyser et présenter nos résultats. Le processus a commencé par le nettoyage des données écologiques pour éliminer les erreurs et les incohérences, suivi de leur validation pour assurer l'exactitude et la fiabilité des informations. Les données nettoyées ont été entreposées dans une base de données SQL, gérée avec RSQLite pour faciliter la manipulation des données dans l'environnement RStudio. Pour garantir la reproductibilité de notre recherche, nous avons utilisé Git pour le versionnage du code. L'automatisation des scripts d'analyse a été réalisée avec le package « targets » dans R, permettant une mise à jour efficace et une exécution systématique des analyses. La visualisation des données a joué un rôle crucial, utilisant des techniques de conception graphique avancées pour illustrer clairement les résultats. Enfin, la communication des découvertes scientifiques a été formalisée à travers des rapports détaillés en RMarkdown, combinant code, résultats et interprétations pour une diffusion transparente et accessible des résultats de la recherche.
+
+Résultats {#Résultats .unnumbered}
+------
+La largeur, la profondeur et la vitesse du courant de la rivière liée à l'abondance totale du benthos, ont montré, respectivement un coefficient de corrélation non significatif de -0,026, 0.048 et 0.011, nous empêchant donc d’émettre des conclusions entre ces paramètres et l’abondance du benthos. Toutefois, la température de l'eau des rivières montre une corrélation significative légèrement positive (0.073), suggérant une influence minime de ce paramètre sur l'abondance totale du benthos. Il est intéressant de constater que des corrélations positives significatives sont observées entre la profondeur et la largeur des rivières (0.219), la largeur des rivières et la température de l'eau (0.290), indiquant que les rivières plus larges et plus profondes peuvent avoir des températures plus élevées. Mais aussi entre la température de l’eau et la vitesse du courant des rivières (0,332) et entre la profondeur et la vitesse du courant des rivières (0,442).
+
+La figure 2 suggère qu'il y a des variations dans l'abondance des organismes benthiques entre les différentes classes de transparence. Sur une échelle logarithmique, l'abondance tend à être plus élevée dans les cours d'eau à transparence élevée et moyenne qu'à transparence faible, mais avec une étendue des données notables pour la classe « élevée ». Nous avons donc fait un test de Tukey, qui a révélé uniquement une différence significative dans l’abondance totale entre les groupes de transparence moyenne et faible.
+
+La figure 3 illustré ci-dessus présente une régression linéaire (ligne bleue) entre la vitesse moyenne du courant (m/s) et la température moyenne de l'eau (°C). Celle-ci montre une relation significative entre les deux attributs (p-value = 3,064 x 10-11***) ainsi qu’un R2 de 0,5216. Une telle relation est couramment exploitée en écologie et hydrologie pour évaluer les répercussions de la température sur les systèmes aquatiques @sinokrot_-stream_2000. L'intervalle de confiance (bande grise) entourant la ligne de régression indique la fiabilité des prédictions obtenues pour divers degrés de température.
+
+![Corrélation entre paramètres physiques des rivières et abondance des macro-invertébrés benthiques, avec diagrammes de dispersion et densité. \label{fig:plot1}]("projet-gab-alex-just/figure_3.png"){width=50% height=26%}
+
+![Relation entre la vitesse moyenne du courant et la température moyenne du cours d'eau avec la position des taxons associés. \label{fig:plot1}]("C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_1.png"){width=50% height=26%}
+
+![Relation entre la transparence de l'eau (élevée, moyenne et faible) et l'abondance totale des organismes benthiques . \label{fig:plot1}]("C:/Users/ALEXIS/OneDrive/Bureau/Atelier2_ AlexisGabJust/projet-gab-alex-just/figure_2.png"){width=50% height=26%}
+
+Discussion {#Discussion .unnumbered}
+------
+La matrice de corrélation présentée à la figure 1 fournit une vue d'ensemble des relations potentielles entre les paramètres physiques des rivières soit la profondeur (m), la largeur (m), la vitesse du courant (m/s) et la température de l’eau (°C). Nous souhaitions observer des corrélations entre ces différentes caractéristiques et l'abondance totale des organismes benthiques. Les corrélations significatives dans la figure 1 sont en accord avec les résultats retrouvés dans la littérature scientifique. En effet, des études antérieures montrent souvent une corrélation positive entre l’abondance du benthos et la température de l’eau qui peut affecter leur métabolisme, leur taux de croissance ainsi que leur reproduction [@lenat_effects_1994;@paul_streams_2001]. Ces résultats nous montrent que, bien que certaines relations entre les caractéristiques physiques des rivières et l'abondance benthique ne soient pas significatives, d'autres, telles que la température de l'eau, peuvent avoir un impact, bien que faible, sur l’abondance du benthos dans les rivières. Il est important de comprendre que ces corrélations n'impliquent pas nécessairement une relation de cause à effet et que des analyses plus approfondies seraient nécessaires pour démystifier les interactions complexes au sein de ces écosystèmes aquatiques. 
+
+L'interprétation écologique de la figure 2 lie la transparence de l'eau, indice de sa qualité, à l'abondance du benthos. Une eau claire, indiquant peu de particules en suspension, laisse pénétrer davantage de lumière, stimulant la photosynthèse et la productivité primaire, bénéficiant ainsi à la chaîne alimentaire disponible pour les organismes benthiques. À l'inverse, une eau trouble, avec une faible transparence due à une turbidité élevée, limite l'exposition à la lumière et peut réduire la disponibilité alimentaire pour le benthos. La présence de variations significatives dans les données suggère l'influence d'autres facteurs environnementaux, indiquant des interactions écologiques complexes influençant les organismes benthiques. Les écarts importants et valeurs aberrantes dans les données nécessitent une exploration plus approfondie, et des analyses statistiques supplémentaires pourraient clarifier les mécanismes sous-jacents. Les avis scientifiques divergent ; l'étude de Lunt et Smee révèle que la turbidité peut favoriser une plus grande abondance benthique en offrant un refuge contre les prédateurs @lunt_turbidity_2020. Tandis que Norton note que la prédation est plus élevée dans les eaux claires, réduisant ainsi l'abondance benthique @norton_crystal_2023. Cependant, l’étude de Bigham a eu du mal à démontrer des liens significatifs entre la turbidité et les communautés benthiques en raison de réponses variables entre différentes familles, soulignant le besoin de recherches futures pour des conclusions définitives @bigham_review_2021.
+
+L’objectif de la figure 3 était de déterminer l'influence de la température sur la vélocité des cours d'eau, tout en explorant les potentiels variations de cette influence sur différents taxons benthiques. Ainsi, la tendance positive qui émerge de l'analyse, suggérant une augmentation de la vitesse du courant en relation avec l'élévation de la température, est une conséquence probable de la réduction de la densité de l'eau chaude, ce qui diminue la friction et favorise un écoulement plus aisé de l’eau. L'hétérogénéité des points de données révèle que les taxons de macro-invertébrés montrent des vitesses de courant variables à des températures identiques, reflétant des préférences écologiques ou des tolérances spécifiques aux gradients de température et de courant. Par exemple, des organismes tels que certains Trichoptères, qui nécessitent des eaux calmes et des substrats stables pour s'accrocher ou ériger des habitats @mackay_ecological_1979, contrastent avec des taxons comme les Pteronarcyidae, qui prospèrent dans des courants plus vifs, favorables à leur oxygénation et à l'apport en nutriments @stewart_front_1988. En outre, la température est un facteur déterminant du métabolisme benthique, influençant la croissance, la reproduction et la survie. Les températures accrues peuvent stimuler ces processus jusqu'à une limite, au-delà de laquelle les conditions deviennent hostiles [@portner_physiology_2008;@portner_ecosystem_2008]. Ainsi, la distribution des données peut être interprétée comme une cartographie des niches écologiques favorables à chaque taxons, délimitées par des seuils de températures critiques.
+
+Conclusion {#Conclusion .unnumbered}
+------
+En conclusion, le graphique met en lumière la complexité des interactions entre les paramètres abiotiques et la biodiversité benthique, soulignant l'importance de la température et de la dynamique hydraulique dans la structuration des communautés aquatiques. Ces observations forment la base d'une compréhension plus approfondie des écosystèmes fluviaux, offrant des perspectives essentielles pour la conservation et la gestion des ressources aquatiques.
+
+<!-- Leave these lines as they are at the end of your .Rmd file to ensure placement of methods & acknowledgements sections before the references-->
+\showmatmethods
+\showacknow
+\pnasbreak
